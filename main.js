@@ -12,21 +12,21 @@ function createWindow () {
     /*____  Have to be turn on when dev is over ____*/
     //skipTaskbar: true,
     frame: false,
-    height: 450,
-    width: 400,
+    height: 800,
+    width: 1200,
     webPreferences: {
       nodeIntegration: true
     }
   })
 
-  /*____    l18 -> l20: Live Reload [Fonctionnel uniquement sur modification/save du main.js]   ____*/
+  /*____    l18 -> l20: Live Reload   ____*/
   try {
     require('electron-reloader')(module)
   } catch (_) {}
 
   mainWindow.loadURL(
     url.format({
-      pathname: path.join(__dirname, `/dist/Erp-Isitech/index.html`),
+      pathname: path.join(__dirname, `/dist/ERP/index.html`),
       protocol: "file:",
       slashes: true
     })

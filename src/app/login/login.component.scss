@@ -1,96 +1,178 @@
-.login-header {
-  height: 150px;
-  max-height: 150px;
-  max-width: 300px;
-  margin: auto;
+.login-panel {
+  position: absolute;
+  top: 0;
+  display: inline-flex;
+  min-height: 800px;
+  height: 800px;
+  max-height: 800px;
+  min-width: 1400px;
+  width: 1400px;
+  max-width: 1400px;
+}
+/*_____________________________Left CSS rules___________________________*/
+.login-box-left {
+  position: relative;
+  left: 0;
+  min-height: 800px;
+  min-width: 70%;
+  max-height: 800px;
+  max-width: 70%;
+  background-color: #21252B;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  text-align: center;
+}
+
+.login-carousel-img {
+  height: 800px;
+  width: 980px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+/*_____________________________Right CSS rules__________________________*/
+.login-box-right {
+  position: relative;
+  right: 0;
+  min-height: 800px;
+  height: 800px;
+  max-height: 800px;
+  min-width: 30%;
+  background-color: #21254F;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  text-align: center;
 }
 
 .login-logo {
-  margin: 0 auto;
-  max-width: 50%;
-  max-height: 100%;
-  text-align: center;
+  min-height: 150px;
+  max-height: 250px;
+  max-width: 150px;
+  margin: 35px auto 0 auto;
 }
 
 .login-logo-img {
-  max-width: 120px;
-  margin-top: 15px;
-  max-height: 120px;
-  margin-bottom: 25px;
+  width: 150px;
+}
+
+.login-logo-text {
+  color: white;
+  font-size: xx-large;
+  letter-spacing: 4px;
+  max-width: 230px;
+  margin-right: 8px;
+}
+
+.login-logo-text-red{
+  color: red;
+  font-size: xx-large;
 }
 
 .login-form {
-  width: 300px;
+  padding: 15px;
   max-width: 300px;
-  position: absolute;
-  top: 40%;
+  margin: 180px auto 170px auto;
 }
 
 .login-form-input {
-  width: 296px;
-  height: 30px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  border-width: 0px;
-  background-color: #EFEFEF;
-  outline-width: 0px;
-}
-
-.login-form-input:focus {
-  border-width: 0px;
-  border: none;
-}
-
-.login-form-btn-box {
   display: inline-flex;
+  margin-bottom: 12px;
+  text-align: center;
+  background-color:#f7f7f7;
+  border-radius: 5px;
+  min-height: 35px;
+  min-width: 280px;
   width: 300px;
-  margin-top: 5px;
 }
 
-.login-form-btn-a {
-  width: 260px;
-  height: 30px;
-  max-height: 30px;
-  border-radius: 10px;
-  border: 0px;
-  font-weight: bold;
-  font-size: 15px;
-  outline-width: 0px;
-  line-height: 28px;
+.login-form-input-text {
+  background-color:#f7f7f7;
+  font-size: large;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  min-height: 35px;
+  min-width: 90%;
+  width: 300px;
+  font-family: 'Varela Round';
+  font-style: italic;
+}
+
+.login-form-input-text:focus {
+  font-style: normal;
+  outline: 0px;
+}
+
+.login-form-input-text:focus::placeholder {
+  color: #F7F7F7;
+}
+
+.login-form-svg {
+  float: left;
+  min-width: 10%;
+  margin: auto;
+}
+
+.login-form-input:focus  {
+  font-style: normal;
+  font-size: medium;
+}
+
+.login-form-btn-container {
   display: inline-flex;
-  padding-left: 80px;
-  color: #CC1C24;
-  margin-right: 10px;
+  min-width: 304px;
+  width: 304px;
+  max-width: 304px;
+  min-height: 35px;
+  height: 35px;
+  max-height: 35px;
 }
 
-.login-form-btn-a:hover { 
-  background-color: green;
+.login-form-btn {
+  min-width: 254px;
+  min-height: 35px;
+  border: none;
+  margin-right: 4px;
+  border-bottom-left-radius: 6px;
+  border-top-left-radius: 6px;
   color: white;
+  background-color: #E22C35;
+  font-size: large;
+  transition: ease-out 0.5s;
+  cursor: pointer;
 }
 
-.login-form-btn-icon {
-  margin-top: 1px;
-  margin-right: 0px;
-  margin-left: 45px;
+.login-form-btn:focus {
+  outline: 0;
+  box-shadow: inset 254px 0 0 0 #BB1A22;
 }
 
-.login-form-btn-b {
+.forward-icon {
+  float: right;
+}
+
+.login-form-btn-option {
   width: 50px;
-  min-width: 50px;
-  height: 30px;
-  border-radius: 10px;
-  border: 0px;
-  outline-width: 0px;
-  color: #CC1C24;
+  max-width: 50px;
+  min-height: 25px;
+  height: 35px;
+  max-height: 35px;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: ease .5s;
+}
+
+.login-form-btn-option:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 50px rgba(33, 37 ,43, 0.5);
+}
+
+.vert-dot-icon {
+  margin: auto;
 }
 
 .login-footer {
-  position: absolute;
-  max-width: 300px;
-  bottom: 0;
-}
-
-.login-footer-text {
-  width: 300px;
-  text-align: center;
+  font-size: small;
+  color: white;
 }

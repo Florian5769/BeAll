@@ -1,29 +1,49 @@
-<div class="login-header">
-  <div class="login-logo">
-    <img src="assets/img/eiffage-logo-tbk.png" class="login-logo-img">
+<div class="login-panel">
+<!--____________________________Left box_______________________________-->
+  <div class="login-box-left">
+    <img
+      src="./assets/img/NightCity.png"
+      class="login-carousel-img">
   </div>
-  <div class="login-body">
+<!--_____________________________Right box_____________________________-->
+  <div class="login-box-right">
+    <div class="login-logo">
+      <img
+        src="./assets/img/eiffage-logo.png"
+        class="login-logo-img">
+    </div>
+    <div style="display: inline-flex;">
+      <span class="login-logo-text">Bienvenu</span>
+      <span class="login-logo-text-red"> !</span>
+    </div>
     <div class="login-form">
-      <input class="login-form-input">
-      <input class="login-form-input">
-      <div class="login-form-btn-box">
-        <button class="login-form-btn-a">
-          <div class="login-form-btn-text">
-            Connexion
-          </div>
-          <div class="login-form-btn-icon">
-            <span class="material-icons login-form-connect-icon">lock_open</span>
-          </div>
+      <div class="login-form-input">
+        <span class="material-icons login-form-svg">person_outline</span>
+        <input
+          type="text"
+          required
+          placeholder="Adresse mail"
+          class="login-form-input-text">
+      </div>
+      <div class="login-form-input">
+        <span class="material-icons login-form-svg">lock_open</span>
+        <input
+          type="password"
+          required
+          placeholder="Mot de passe"
+          class="login-form-input-text">
+      </div>
+      <div class="login-form-btn-container">
+        <button class="login-form-btn">
+          <span style="line-height: 24px;">Connexion</span>
+          <span class="material-icons forward-icon">arrow_forward</span>
         </button>
-        <button class="login-form-btn-b">
-          <span class="material-icons">
-            more_horiz
-            </span>
+        <button class="login-form-btn-option">
+          <span 
+            class="material-icons vert-dot-icon">more_vert</span>
         </button>
       </div>
     </div>
+    <span class="login-footer">All rights reserved to 3CU, 2020</span>
   </div>
-  <footer class="login-footer">
-    <h5 class="login-footer-text">All rights reserved to 3CU, 2020</h5>
-  </footer>
 </div>

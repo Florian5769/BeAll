@@ -7,13 +7,11 @@ let mainWindow
 function createWindow () {
   mainWindow = new BrowserWindow({
     center: true,
-    movable: false,
     resizable: false,
-    /*____  Have to be turn on when dev is over ____*/
-    //skipTaskbar: true,
+    transparent: true,
     frame: false,
-    height: 800,
-    width: 1200,
+    height:800,
+    width:1400,
     webPreferences: {
       nodeIntegration: true
     }
@@ -40,7 +38,6 @@ function createWindow () {
 app.on('ready', createWindow)
 
 /*____  Menu  ____*/
-
 Menu.setApplicationMenu(null)
 
 app.on('window-all-closed', function () {

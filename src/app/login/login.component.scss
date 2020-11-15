@@ -96,7 +96,7 @@
   height: 800px;
   max-height: 800px;
   min-width: 30%;
-  background-color: #21254F;
+  background-color: #282C34;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
   text-align: center;
@@ -146,7 +146,6 @@
 .login-form-input-text {
   background-color:#f7f7f7;
   font-size: large;
-  
   border: none;
   border-radius: 5px;
   min-height: 35px;
@@ -157,8 +156,8 @@
 }
 
 .login-form-input-text:focus {
-  font-style: normal;
   outline: 0px;
+  font-size: small;
   text-align: start;
 }
 

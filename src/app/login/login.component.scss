@@ -20,15 +20,74 @@
   background-color: #21252B;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
-  text-align: center;
 }
 
-.login-carousel-img {
+.login-slideshow-img {
   height: 800px;
   width: 980px;
   border-top-left-radius: 25px;
   border-bottom-left-radius: 25px;
 }
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.prev {
+  left: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover {
+  color:#E22C35;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.next:hover {
+  color:#E22C35;
+}
+
+.login-slideshow-btn-box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.login-slideshow-btn-box span{
+  margin-right: 2px;
+  opacity: 0.3;
+  width: 40px;
+  height: 8px;
+  border-radius: 5px;
+  border: none;
+  outline: 0px;
+  background-color: #bbb;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.login-slideshow-btn-box span:hover {
+  background-color:#E22C35;
+  opacity: 0.7;
+}
+
 /*_____________________________Right CSS rules__________________________*/
 .login-box-right {
   position: relative;
@@ -63,7 +122,7 @@
 }
 
 .login-logo-text-red{
-  color: red;
+  color:  #E22C35;
   font-size: xx-large;
 }
 
@@ -87,19 +146,20 @@
 .login-form-input-text {
   background-color:#f7f7f7;
   font-size: large;
-  text-align: center;
+  
   border: none;
   border-radius: 5px;
   min-height: 35px;
   min-width: 90%;
   width: 300px;
   font-family: 'Varela Round';
-  font-style: italic;
+  text-align: center;
 }
 
 .login-form-input-text:focus {
   font-style: normal;
   outline: 0px;
+  text-align: start;
 }
 
 .login-form-input-text:focus::placeholder {

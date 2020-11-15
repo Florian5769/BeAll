@@ -29,7 +29,7 @@
   border-bottom-left-radius: 25px;
 }
 
-.prev, .next {
+.login-btn-prev, .login-btn-next {
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -43,21 +43,21 @@
   border-radius: 0 3px 3px 0;
 }
 
-.prev {
+.login-btn-prev {
   left: 0;
   border-radius: 3px 0 0 3px;
 }
 
-.prev:hover {
+.login-btn-prev:hover {
   color:#E22C35;
 }
 
-.next {
+.login-btn-next {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
 
-.next:hover {
+.login-btn-next:hover {
   color:#E22C35;
 }
 

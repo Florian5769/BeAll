@@ -141,7 +141,17 @@
   min-height: 35px;
   min-width: 280px;
   width: 300px;
+  //border: 2px solid rgba(0, 0, 0, 0.3);
 }
+
+.login-form-input:focus-within {
+  color: red;
+  //border: 2px solid black;
+}
+/*
+.login-form-input:hover {
+  border: 2px solid white;
+}*/
 
 .login-form-input-text {
   background-color:#f7f7f7;
@@ -149,16 +159,11 @@
   border: none;
   border-radius: 5px;
   min-height: 35px;
-  min-width: 90%;
-  width: 300px;
+  min-width: calc(90% - 4px);
+  width: 266px;
   font-family: 'Varela Round';
   text-align: center;
-}
-
-.login-form-input-text:focus {
   outline: 0px;
-  font-size: small;
-  text-align: start;
 }
 
 .login-form-input-text:focus::placeholder {
@@ -169,7 +174,6 @@
   float: left;
   min-width: 10%;
   margin: auto;
-  color: #E22C35;
 }
 
 .login-form-btn-container {

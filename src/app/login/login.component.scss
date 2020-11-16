@@ -169,11 +169,7 @@
   float: left;
   min-width: 10%;
   margin: auto;
-}
-
-.login-form-input:focus  {
-  font-style: normal;
-  font-size: medium;
+  color: #E22C35;
 }
 
 .login-form-btn-container {
@@ -229,6 +225,8 @@
 
 .vert-dot-icon {
   margin: auto;
+  color: #E22C35;
+  padding: 2px 2px 0 0;
 }
 
 .login-footer {

@@ -1,20 +1,22 @@
-const { app, BrowserWindow, Menu } = require('electron')
+const { app, BrowserWindow} = require('electron')
 const url = require("url");
-const path = require("path");
+const indexPath = require("path");
 
-let mainWindow
+let win
 
-function createWindow () {
-  mainWindow = new BrowserWindow({
+function createWindow () {;
+  win = new BrowserWindow({
     center: true,
-    resizable: false,
-    transparent: true,
-    frame: false,
-    height:800,
-    width:1400,
+    resizable: true,
+    width:1000,
+    hasShadow: true,
+    frame: false, 
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+      allowRunningInsecureContent:true,
+      contextIsolation: false,  // false if you want to run 2e2 test with Spectron
+      enableRemoteModule : true // true if you want to run 2e2 test  with Spectron or use remote module in renderer context (ie. Angular)
+    },
   })
 
   /*____    l18 -> l20: Live Reload   ____*/
@@ -22,23 +24,29 @@ function createWindow () {
     require('electron-reloader')(module)
   } catch (_) {}
 
-  mainWindow.loadURL(
+
+  win.webContents.openDevTools();
+
+  win.loadURL(
     url.format({
-      pathname: path.join(__dirname, `/dist/ERP/index.html`),
+      pathname: indexPath.join(__dirname, `/dist/ERP/index.html`),
       protocol: "file:",
       slashes: true
     })
   );
+  
 
-  mainWindow.on('closed', function () {
-    mainWindow = null
+  win.on('closed', function () {
+    win = null
   })
 }
 
 app.on('ready', createWindow)
 
 /*____  Menu  ____*/
-Menu.setApplicationMenu(null)
+// Menu.setApplicationMenu(null)
+
+
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()

@@ -1,1 +1,104 @@
-<app-login></app-login>
+<div class="window">
+
+    <header>
+  
+        <div style="display: flex;">
+
+            <div style="width: 100%; -webkit-app-region: drag"></div>
+       <div class="button-window-action">
+           <div style="cursor: pointer;" (click)="reduceApp()">
+            <svg
+            [ngStyle]="route != '/' ?{'filter': 'brightness(0) invert(0)'} : {'filter': 'brightness(0) invert(1)'}"
+            style="width: 11px;"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M501.333,245.333H10.667C4.776,245.333,0,250.109,0,256c0,5.891,4.776,10.667,10.667,10.667h490.667    c5.891,0,10.667-4.776,10.667-10.667C512,250.109,507.224,245.333,501.333,245.333z"/>
+                    </g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                </svg>
+           </div>
+          
+           <div *ngIf="isMaximized" style="cursor: pointer;" (click)="unMaximizeApp()">
+            <svg  [ngStyle]="route != '/' ?{'filter': 'brightness(0) invert(0)'} : {'filter': 'brightness(0) invert(1)'}"
+            style="width: 11px;" xmlns="http://www.w3.org/2000/svg" id="Capa_1" viewBox="0 0 482.239 482.239"><path d="m465.016 0h-344.456c-9.52 0-17.223 7.703-17.223 17.223v86.114h-86.114c-9.52 0-17.223 7.703-17.223 17.223v344.456c0 9.52 7.703 17.223 17.223 17.223h344.456c9.52 0 17.223-7.703 17.223-17.223v-86.114h86.114c9.52 0 17.223-7.703 17.223-17.223v-344.456c0-9.52-7.703-17.223-17.223-17.223zm-120.56 447.793h-310.01v-310.01h310.011v310.01zm103.337-103.337h-68.891v-223.896c0-9.52-7.703-17.223-17.223-17.223h-223.896v-68.891h310.011v310.01z"/></svg>
+           </div>
+           <div *ngIf="!isMaximized" style="cursor: pointer;" (click)="maximizeApp()">
+            <svg  [ngStyle]="route != '/' ?{'filter': 'brightness(0) invert(0)'} : {'filter': 'brightness(0) invert(1)'}"
+            style="width: 11px;" xmlns="http://www.w3.org/2000/svg" id="Capa_1" viewBox="0 0 482.239 482.239"><path d="m465.016 0h-344.456c-9.52 0-17.223 7.703-17.223 17.223v86.114h-86.114c-9.52 0-17.223 7.703-17.223 17.223v344.456c0 9.52 7.703 17.223 17.223 17.223h344.456c9.52 0 17.223-7.703 17.223-17.223v-86.114h86.114c9.52 0 17.223-7.703 17.223-17.223v-344.456c0-9.52-7.703-17.223-17.223-17.223zm-120.56 447.793h-310.01v-310.01h310.011v310.01zm103.337-103.337h-68.891v-223.896c0-9.52-7.703-17.223-17.223-17.223h-223.896v-68.891h310.011v310.01z"/></svg>
+           </div>
+           <div style="cursor: pointer;" class="close-app"  (click)="closeApp()">
+            <svg [ngStyle]="route != '/' ?{'filter': 'brightness(0) invert(0)'} : {'filter': 'brightness(0) invert(1)'}"
+            style="width: 11px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 496.096 496.096" xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M259.41,247.998L493.754,13.654c3.123-3.124,3.123-8.188,0-11.312c-3.124-3.123-8.188-3.123-11.312,0L248.098,236.686    L13.754,2.342C10.576-0.727,5.512-0.639,2.442,2.539c-2.994,3.1-2.994,8.015,0,11.115l234.344,234.344L2.442,482.342    c-3.178,3.07-3.266,8.134-0.196,11.312s8.134,3.266,11.312,0.196c0.067-0.064,0.132-0.13,0.196-0.196L248.098,259.31    l234.344,234.344c3.178,3.07,8.242,2.982,11.312-0.196c2.995-3.1,2.995-8.016,0-11.116L259.41,247.998z"/>
+                    </g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                <g>
+                </g>
+                </svg>
+           </div>
+        </div>
+    </div>
+        </header>
+    <router-outlet></router-outlet>
+</div>

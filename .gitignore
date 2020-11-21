@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -103,6 +104,8 @@ dist
 # TernJS port file
 .tern-port 
 
+=======
+>>>>>>> 9aab0c8a16ec1ee333e801cae1a1d12891bc3278
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output

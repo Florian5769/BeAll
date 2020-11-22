@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   public usernameError = false;
   public passwordError = false;
   public errMessage = "";
-  snackConfig: MatSnackBarConfig = {duration: 8000};
-  formInput: FormGroup;
+  public snackConfig: MatSnackBarConfig = { duration: 8000 };
+  public formInput: FormGroup;
 
 
   constructor(

@@ -17,7 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "allowedCommonJsDependencies": ["lodash"],
+            "allowedCommonJsDependencies": [
+              "lodash"
+            ],
             "outputPath": "dist/ERP",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -123,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ERP"
+    }
+  },
+  "defaultProject": "ERP",
+  "cli": {
+    "analytics": "38e4bf4f-2fc8-4b23-9774-b4e6dc448c0d"
+  }
 }

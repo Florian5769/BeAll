@@ -8,7 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import {NgxElectronModule} from 'ngx-electron';
+
+
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,7 @@ import {NgxElectronModule} from 'ngx-electron';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxElectronModule
+    MatSnackBarModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

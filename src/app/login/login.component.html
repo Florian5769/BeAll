@@ -3,12 +3,12 @@
   <div class="login-box-right">
     <div class="login-form">
       <div>
-        <h5 style="color: #ffffff61;margin: 0;">WELCOME BACK</h5>
+        <h5 style="color: #ffffff61;margin: 0;">BIENVENUE</h5>
         <h2 style="color: white;margin: 10px 0px 40px 0px;">Se connecter</h2>
       </div>
       <form [formGroup]="formInput">
         <div class="login-form-input">
-          <label for="">E-Mail or Username</label>
+          <label for="">E-Mail ou Nom d'utilisateur</label>
           <input
             type="text"
             required
@@ -20,7 +20,11 @@
         </div>
 
         <div class="login-form-input">
-          <label for="">Password</label>
+          <div class="flex sp-b flex-center">
+            <label for="">Mot de passe</label>
+            <label style="opacity: 0.5;font-size: 12px;cursor: pointer;">Mot de passe oublié?</label>
+          </div>
+
           <input
             type="password"
             required

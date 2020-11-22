@@ -11,12 +11,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { UserComponent } from './user/user.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { SnackBarService } from './components/snackbar/snackbar';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
+    UserComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +32,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HttpClientModule,
     MatSnackBarModule
   ],
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule,
+    SnackBarService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

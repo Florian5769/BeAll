@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-
+import { SnackBarService } from '../components/snackbar/snackbar';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,8 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private cd: ChangeDetectorRef,
-    private readonly snackBar: MatSnackBar,
+    private snbar : SnackBarService,
+    private cookieServ : CookieService
   ) {
     this.formInput = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -60,13 +62,20 @@ export class LoginComponent implements OnInit {
         if (resp["Status"] != "200") {
           this.usernameError = true;
           this.passwordError = true;
-          this.snackBar.open(this.errMessage, 'OK', this.snackConfig)
+          this.snbar.openSnackBar(this.errMessage, 'OK')
           return
         } else {
+          //we set the cookie
+          this.cookieServ.set('token', resp['Token']);
+
+          //go to dashboard
           this.router.navigateByUrl('/dashboard');
+          
+          //maximize the window
           const { remote } = window.require('electron');
           remote.getCurrentWindow().maximize();
-          remote.getCurrentWindow().setResizable(true)
+          remote.getCurrentWindow().setResizable(true);
+
           return;
         }
       })

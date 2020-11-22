@@ -91,47 +91,6 @@ header{
   background-color: #F44336;
 }
 
-.nav-content{
-  height: 100vh;
-  background-color: #f8f8f8;
-  width: 300px;
-}
-
-.nav{
-  padding-top: 35px;
-}
-
-.nav-item{
-  padding: 10px 25px;
-  cursor: pointer;
-  position: relative;
-}
-
-.nav-item i {
-  margin-right: 20px;
-}
-
-.nav-item:not(:last-child){
-  margin-bottom: 10px;
-}
-
-.nav-item.active::before {
-  content: "";
-  width: 3px;
-  height: 100%;
-  display: block;
-  background: #2196F3;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  border-radius: 90px;
-}
-
-.nav-item.active {
-  color: #2196F3;
-}
-
 .sp-b{
   justify-content: space-between;
 }

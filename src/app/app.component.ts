@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ElectronService } from './providers/electron.service';
+import { ElectronService } from '../providers/electron.service';
 import {NavigationStart, Router} from '@angular/router';
 
 @Component({

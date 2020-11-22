@@ -1,0 +1,47 @@
+
+.nav-content{
+    height: 100vh;
+    background-color: #f8f8f8;
+    width: 300px;
+  }
+  
+  .nav{
+    padding-top: 35px;
+  }
+  
+  .nav-item{
+    padding: 13px 25px;
+    cursor: pointer;
+    position: relative;
+    outline: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 90px;
+    width: -webkit-fill-available;
+    display: flex;
+    align-items: flex-end;
+  }
+  
+  .nav-item svg {
+    margin-right: 20px;
+  }
+
+  .nav-item.active svg{
+    filter: invert(45%) sepia(83%) saturate(1824%) hue-rotate(184deg) brightness(99%) contrast(93%);
+  }
+
+  .nav-item:first-child{
+      padding:0px;
+      margin-bottom: 30px !important;
+  }
+  
+  .nav-item:not(:last-child){
+    margin-bottom: 10px;
+  }
+  
+  .nav-item.active {
+    color: #2196F3;
+    background: #2196f324;
+    transition: 0.4s;
+  }
+  

@@ -1,0 +1,63 @@
+<form [formGroup]="formInput">
+    <div class="login-form-input">
+      <label for="">Nom d'utilisateur</label>
+      <input
+        type="text"
+        required
+        placeholder="Identifiant"
+        class="login-form-input-text"
+        autocomplete="username"
+        formControlName="username"/>
+    </div>
+
+    <div class="login-form-input">
+        <label for="">Email</label>
+        <input
+          type="text"
+          required
+          placeholder="Identifiant"
+          class="login-form-input-text"
+          autocomplete="email-new"
+          formControlName="email"/>
+      </div>
+
+      <div class="login-form-input">
+        <label for="">Prénom</label>
+        <input
+          type="text"
+          required
+          placeholder="Identifiant"
+          class="login-form-input-text"
+          autocomplete="firstname"
+          formControlName="firstname"/>
+      </div>
+
+      <div class="login-form-input">
+        <label for="">Nom</label>
+        <input
+          type="text"
+          required
+          placeholder="Identifiant"
+          class="login-form-input-text"
+          autocomplete="lastname"
+          formControlName="lastname"/>
+      </div>
+
+    <div class="login-form-input">
+        <label for="">Mot de passe</label>
+      <input
+        type="password"
+        required
+        placeholder="Mot de passe"
+        class="login-form-input-text"
+        autocomplete="new-password"
+        formControlName="password"/>
+    </div>
+
+  <div class="login-form-btn-container">
+    <button (click)="createUser()"
+      class="login-form-btn">
+      <span  style="line-height: 24px;">Créer</span>
+    </button>
+  </div>
+  </form>

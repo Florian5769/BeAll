@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   public isLoading = false;
   public usernameError = false;
   public passwordError = false;
-  formInput: FormGroup;
+  public formInput: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,

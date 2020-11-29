@@ -2,6 +2,7 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
+@import './global.scss';
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -36,6 +37,8 @@ $ERP-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
+
+
 html, body { height: 100%; }
 img {
   -webkit-user-drag: none;
@@ -56,8 +59,40 @@ body {
                     supported by Chrome, Edge, Opera and Firefox */
 }
 
+.logo{
+  font-size: 30px;
+}
+
+.search{
+  width: 390px
+}
+
+.search input{
+  padding: 6px 10px;
+  border-color: #dadada;
+  border-width: 1px;
+  border-radius: 90px;
+  outline: 0;
+  width: 100%;
+  background: #f8f8f8;
+}
+
+.search input:focus{
+  border-color: $primary;
+  border-width: 2px;
+}
+
+h2,h4{
+  margin:0
+}
+
+h4{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
 header{
-  z-index: 1;
+  z-index: 2;
   color: white;
   text-align: right;
   background: transparent;
@@ -80,6 +115,8 @@ header{
 .button-window-action div{
   padding: 5px 17px 5px 17px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 .button-window-action div:hover{
@@ -150,4 +187,12 @@ header{
     -webkit-transform: scale(1.0);
     transform: scale(1.0);
   }
+}
+
+img{
+  cursor: pointer !important;
+}
+
+.text-indigo-600{
+  color: $primary;
 }

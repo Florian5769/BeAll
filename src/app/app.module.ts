@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -14,6 +14,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { UserComponent } from './user/user.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SnackBarService } from './components/snackbar/snackbar';
+import { EventComponent } from './event/event.component';
+import { TopbarComponent } from './components/topbar/topbar.component';
+import { TokenInterceptorService } from 'src/providers/token-interceptor/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { SnackBarService } from './components/snackbar/snackbar';
     DashboardComponent,
     UserComponent,
     SidebarComponent,
+    EventComponent,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,11 +35,17 @@ import { SnackBarService } from './components/snackbar/snackbar';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    CommonModule
   ],
   providers: [
     HttpClientModule,
-    SnackBarService
+    SnackBarService,
+    {
+      provide: HTTP_INTERCEPTORS, 
+      useClass: TokenInterceptorService,
+      multi: true, 
+    },
   ],
   bootstrap: [AppComponent]
 })

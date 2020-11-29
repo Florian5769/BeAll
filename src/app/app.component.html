@@ -2,9 +2,10 @@
 
     <header>
   
-        <div style="display: flex;">
+        <div  [ngStyle]="route != '/' ?{'background': '#f8f8f8'} : {'background': 'transparent'}" style="display: flex;">
 
-            <div style="width: 100%; -webkit-app-region: drag"></div>
+            <div style="width: 100%; -webkit-app-region: drag;    max-height: 30px;
+            min-height: 30px;"></div>
        <div class="button-window-action">
            <div style="cursor: pointer;" (click)="reduceApp()">
             <svg
@@ -100,5 +101,5 @@
         </div>
     </div>
         </header>
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
 </div>

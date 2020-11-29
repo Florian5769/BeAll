@@ -1,9 +1,9 @@
 <div style="background-color: white;">
-    <div style="display: flex;">
+    <div>
     <div class="nav-content" style="position: relative;">
         <div class="nav" >
             <div class="nav-item"> 
-                <h2 style="margin:0">BeAll</h2>
+                <h1 class="logo" style="margin:0">BeAll</h1>
             </div>
             <ng-container *ngFor=" let list of sideList; let i = index;">
                 <div 
@@ -11,26 +11,22 @@
                     [routerLink]="list.rout" 
                     routerLinkActive="active"
                 >
-                   <svg style="width: 23px" xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="list.svg">
-                        <path [attr.d]="list.path" />
-                        <path *ngIf="list.path2" [attr.d]="list.path2" />
-                    </svg>  
-                    <span>{{list.name}}</span>
+                    <div>
+                        <svg style="width: 23px" xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="list.svg">
+                                <path [attr.d]="list.path" />
+                                <path *ngIf="list.path2" [attr.d]="list.path2" />
+                            </svg>  
+                        <span>{{list.name}}</span>
+                    </div>
                 </div>
             </ng-container>
         </div>
-        <!-- logout -->
-        <div 
-            class="nav-item"
-            (click)="logout()"
-            style="position: absolute;bottom: 5px;"
-        >
-            <i style="color: tomato;" class="fas fa-sign-out-alt"></i> <span>Déconnexion</span>
-        </div>
-        <!-- logout -->
     </div>
-    <div style="padding:35px 20px;width: calc(100% - 300px);">
-        <router-outlet></router-outlet>
+    <div class="app-content">
+        <app-topbar></app-topbar>
+        <div style="padding:20px 20px;">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>
 </div>

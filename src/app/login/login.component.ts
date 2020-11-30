@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   public errMessage = "";
   public snackConfig: MatSnackBarConfig = { duration: 8000 };
   public formInput: FormGroup;
+  public showModal : boolean;
 
 
   constructor(
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])]
     });
+    this.showModal = false;
   }
 
   ngOnInit(): void {
@@ -45,8 +47,8 @@ export class LoginComponent implements OnInit {
     if (this.formInput.valid) {
       this.isLoading = true;
       const credential = {
-        "username": this.formInput.value.username,
-        "password": this.formInput.value.password
+        "username": this.formInput.value.username.toLowerCase(),
+        "password": this.formInput.value.password.toLowerCase()
       }
 
       const httpOptions = {
@@ -80,7 +82,14 @@ export class LoginComponent implements OnInit {
         }
       })
     }
+  }
 
+  showModalResetPass(){
+    this.showModal = true;
+  };
+
+  hideModalResetPass(){
+    this.showModal = false;
   }
 
 }

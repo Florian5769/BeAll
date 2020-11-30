@@ -1,7 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {SnackBarService} from '../components/snackbar/snackbar';
+import { SnackBarService } from '../components/snackbar/snackbar';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class UserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private sbar:SnackBarService
+    private sbar: SnackBarService
   ) {
     this.formInput = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -26,7 +26,16 @@ export class UserComponent implements OnInit {
     });
   }
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+  };
+
   ngOnInit(): void {
+    this.http.get(`http://localhost:8000/users`, this.httpOptions).subscribe((resp) => {
+      console.log(resp)
+    })
   }
 
   createUser() {
@@ -39,15 +48,9 @@ export class UserComponent implements OnInit {
         "email": this.formInput.value.email
       }
 
-      const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        })
-      };
-
-      this.http.post(`http://localhost:8000/auth/signup`, userToCreate, httpOptions).subscribe((resp) => {
+      this.http.post(`http://localhost:8000/auth/signup`, userToCreate, this.httpOptions).subscribe((resp) => {
         console.log(resp)
-        this.sbar.openSnackBar(resp['Message'],'ok');
+        this.sbar.openSnackBar(resp['Message'], 'ok');
       })
     }
   }

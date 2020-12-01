@@ -38,7 +38,6 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])]
     });
-    this.showModal = false;
   }
 
   ngOnInit(): void {
@@ -97,7 +96,11 @@ export class LoginComponent implements OnInit {
       actionButtonText: "Delete",
       confirmText:"Continuer",
       productId: "test",
-      template : 1
+      template : 1,
+      step:0,
+      errors:{
+        email : false
+      }
     }
     
     this.matDialog.open(ModalComponent, dialogConfig);

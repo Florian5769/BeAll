@@ -7,10 +7,10 @@ export class ModalActionsService {
 
   constructor() { }
 
-  modalAction(modalData: any) {
+  modalAction(modalData: any, form) {
     switch (modalData.name) {
       case "forgot-password":
-        this.forgotPassword();
+        this.forgotPassword(modalData,form);
         break;
 
       default: alert("action doesnt exist")
@@ -18,8 +18,14 @@ export class ModalActionsService {
     }
   }
 
-  private forgotPassword() {
-    console.log("forgot instruction");
+  private forgotPassword(modalData,form) {
+    if(!form.controls.email.errors){
+      modalData.step += 1;
+      modalData.confirmText = "Confirmer"
+      return
+    }
+
+    modalData.errors.email = true;
   }
 
   private deleteProduct(modalData: any) {

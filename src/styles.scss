@@ -47,6 +47,7 @@ img {
   -o-user-drag: none;
   -user-drag: none;
 }
+
 body { 
   margin: 0;
   font-family: 'Varela Round', Roboto, "Helvetica Neue", sans-serif;
@@ -57,6 +58,11 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                     supported by Chrome, Edge, Opera and Firefox */
+}
+
+.bg-gray-500 {
+  background-color: rgba(107,117,127,var(--tw-bg-opacity));
+  background-color: black;
 }
 
 .mat-dialog-container{

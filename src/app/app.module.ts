@@ -20,7 +20,7 @@ import { EventComponent } from './event/event.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
 import { TokenInterceptorService } from 'src/providers/token-interceptor/token-interceptor.service';
 import { ModalComponent } from './components/modal/modal.component';
-import { ForgotPasswordComponent } from './components/modal/templates/forgot-password/forgot-password.component';
+import { ForgotPasswordComponent } from './components/modal/components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [

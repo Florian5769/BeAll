@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { UserModel } from 'src/app/api/models';
+import { LoginResponseModel } from 'src/app/api/models/login-response.model';
+import { AuthService } from 'src/app/api/providers/auth.service';
 import { SnackBarService } from 'src/app/components/snackbar/snackbar';
 
 @Injectable({
@@ -7,13 +10,19 @@ import { SnackBarService } from 'src/app/components/snackbar/snackbar';
 export class ModalActionsService {
 
   constructor(
-    private snbar : SnackBarService
+    private snbar: SnackBarService,
+    private authService: AuthService
   ) { }
 
-  modalAction(modalData: any, form) {
+  //modalData, formData, ref for close the modal
+  modalAction(modalData: any, form, ref) {
     switch (modalData.name) {
-      case "forgot-password":
-        this.forgotPassword(modalData,form);
+      case "generate-code":
+        this.generateCode(modalData, form);
+        break;
+
+      case "save-new-password":
+        this.saveNewPassWord(modalData, form, ref);
         break;
 
       default: alert("action doesnt exist")
@@ -21,15 +30,35 @@ export class ModalActionsService {
     }
   }
 
-  private forgotPassword(modalData,form) {
-    if(!form.controls.email.errors){
-      modalData.step += 1;
-      modalData.confirmText = "Confirmer"
+  private generateCode(modalData, form) {
+    if (!form.controls.email.errors) {
+      modalData.loading = true;
+      const email: UserModel = {
+        email: form.controls.email.value
+      }
+      this.authService.postGenerateCode(email).toPromise().then((result : LoginResponseModel) => {
+        if (result.Status != 404) {
+          modalData.step += 1;
+          modalData.confirmText = "Confirmer"
+          modalData.name = "save-new-password"
+
+        }else{
+          modalData.errors.email = true;
+          this.snbar.openSnackBar(result.Message, "Ok")
+        }
+      })
+      modalData.loading = false;
       return
     }
 
     modalData.errors.email = true;
     this.snbar.openSnackBar("Veuillez entrer un e-mail valide", "Ok")
+  }
+
+  private saveNewPassWord(modalData, form, ref) {
+    console.log(form.controls)
+    alert('on est la mon pote')
+    ref.close()
   }
 
   private deleteProduct(modalData: any) {

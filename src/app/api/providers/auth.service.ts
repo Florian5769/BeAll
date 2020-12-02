@@ -61,15 +61,51 @@ class AuthService extends __BaseService {
     );
   }
 
+    /**
+   * @param CheckCredentialModel User credential to check
+   * @return User authentificated token
+   */
+  postGenerateCodeResponse(UserModel: UserModel): __Observable<__StrictHttpResponse<LoginResponseModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = UserModel;
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/auth/generate-totp`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<LoginResponseModel>;
+      })
+    );
+  }
+  /**
+   * @param CheckCredentialModel User credential to check
+   * @return User authentificated token
+   */
+  postGenerateCode(UserModel: UserModel): __Observable<LoginResponseModel> {
+    return this.postGenerateCodeResponse(UserModel).pipe(
+      __map(_r => _r.body as LoginResponseModel)
+    );
+  }
+
   /**
    * @param CreateUserModel User to create
    * @return User created
    */
-  putAuthSignupResponse(CreateUserDto: UserModel): __Observable<__StrictHttpResponse<UserModel>> {
+  putAuthSignupResponse(CreateUserModel: UserModel): __Observable<__StrictHttpResponse<UserModel>> {
     let __params = this.newParams();
     let __headers = new HttpHeaders();
     let __body: any = null;
-    __body = CreateUserDto;
+    __body = CreateUserModel;
     let req = new HttpRequest<any>(
       'PUT',
       this.rootUrl + `/auth/signup`,
@@ -91,8 +127,8 @@ class AuthService extends __BaseService {
    * @param CreateUserDto User to create
    * @return User created
    */
-  putAuthSignup(CreateUserDto: UserModel): __Observable<UserModel> {
-    return this.putAuthSignupResponse(CreateUserDto).pipe(
+  putAuthSignup(CreateUserModel: UserModel): __Observable<UserModel> {
+    return this.putAuthSignupResponse(CreateUserModel).pipe(
       __map(_r => _r.body as UserModel)
     );
   }

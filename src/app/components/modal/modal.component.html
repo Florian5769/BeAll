@@ -1,5 +1,5 @@
 <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="fixed z-10 inset-0 overflow-y-auto">
+<div #container class="fixed z-10 inset-0 overflow-y-auto">
     <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
       <!--
         Background overlay, show/hide based on modal state.
@@ -27,14 +27,14 @@
           From: "opacity-100 translate-y-0 sm:scale-100"
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
-      <div style="padding: 0;" class="inline-block align-bottom login-form rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div #modal style="padding: 0;" class="inline-block align-bottom login-form rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
         <div class=" px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
           <div class="sm:flex sm:items-start">
             <div style="width: 100%;" class="mt-3 text-center sm:mt-0 sm:text-center">
               <h2 _ngcontent-kki-c75="" style="color: white; margin: 10px 0px 40px 0px;">{{ modalData.title }}</h2>
               <div class="mt-2">
                   <form [formGroup]="formGroup">
-                    <app-forgot-password [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
+                    <app-forgot-password *ngIf="modalData.template == 1" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
                   </form>
               </div>
             </div>
@@ -42,7 +42,12 @@
         </div>
         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
           <button type="button" (click)="actionFunction()" style="background-color: #2196F3;" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
-            {{ modalData.confirmText }}
+            <span *ngIf="!modalData.loading">{{ modalData.confirmText }}</span>
+            <div class="spinner" *ngIf="modalData.loading">
+              <div class="bounce1"></div>
+              <div class="bounce2"></div>
+              <div class="bounce3"></div>
+            </div>
           </button>
           <button (click)="closeModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2  text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
             Annuler

@@ -86,11 +86,9 @@ export class LoginComponent implements OnInit {
 
   showModalResetPass() {
     const dialogConfig = new MatDialogConfig();
-    // The user can't close the dialog by clicking outside its body
-    dialogConfig.disableClose = true;
     dialogConfig.id = "modal-component";
     dialogConfig.data = {
-      name: "forgot-password",
+      name: "generate-code",
       title: "Mot de passe oublié",
       description: "If you continue, the product with ID will be deleted.",
       actionButtonText: "Delete",

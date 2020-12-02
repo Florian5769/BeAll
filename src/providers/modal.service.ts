@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { SnackBarService } from 'src/app/components/snackbar/snackbar';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalActionsService {
 
-  constructor() { }
+  constructor(
+    private snbar : SnackBarService
+  ) { }
 
   modalAction(modalData: any, form) {
     switch (modalData.name) {
@@ -26,6 +29,7 @@ export class ModalActionsService {
     }
 
     modalData.errors.email = true;
+    this.snbar.openSnackBar("Veuillez entrer un e-mail valide", "Ok")
   }
 
   private deleteProduct(modalData: any) {

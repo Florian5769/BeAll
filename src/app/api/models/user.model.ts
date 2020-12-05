@@ -8,6 +8,7 @@ export interface UserModel {
     createdAt?: Date;
     updatedAt?: Date;
     token?: string;
+    password?:string;
     lastConnection?: Date;
     address?: string;
     gender?: 'Male' | 'Female';

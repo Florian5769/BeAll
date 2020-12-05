@@ -97,6 +97,42 @@ class AuthService extends __BaseService {
     );
   }
 
+      /**
+   * @param CheckCredentialModel User credential to check
+   * @return User authentificated token
+   */
+  postChangePasswordResponse(UserModel: UserModel): __Observable<__StrictHttpResponse<LoginResponseModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = UserModel;
+    let req = new HttpRequest<any>(
+      'POST',
+      this.rootUrl + `/auth/change-password`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: 'json'
+      });
+
+    return this.http.request<any>(req).pipe(
+      __filter(_r => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<LoginResponseModel>;
+      })
+    );
+  }
+  /**
+   * @param CheckCredentialModel User credential to check
+   * @return User authentificated token
+   */
+  postChangePassword(UserModel: UserModel): __Observable<LoginResponseModel> {
+    return this.postChangePasswordResponse(UserModel).pipe(
+      __map(_r => _r.body as LoginResponseModel)
+    );
+  }
+
   /**
    * @param CreateUserModel User to create
    * @return User created

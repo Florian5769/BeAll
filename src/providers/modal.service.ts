@@ -36,16 +36,17 @@ export class ModalActionsService {
       const email: UserModel = {
         email: form.controls.email.value
       }
-      this.authService.postGenerateCode(email).toPromise().then((result : LoginResponseModel) => {
+      this.authService.postGenerateCode(email).toPromise().then((result: LoginResponseModel) => {
         if (result.Status != 404) {
           modalData.step += 1;
           modalData.confirmText = "Confirmer"
           modalData.name = "save-new-password"
 
-        }else{
+        } else {
           modalData.errors.email = true;
-          this.snbar.openSnackBar(result.Message, "Ok")
         }
+
+        this.snbar.openSnackBar(result.Message, "Ok")
       })
       modalData.loading = false;
       return
@@ -56,9 +57,15 @@ export class ModalActionsService {
   }
 
   private saveNewPassWord(modalData, form, ref) {
-    console.log(form.controls)
-    alert('on est la mon pote')
-    ref.close()
+    const code: UserModel = {
+      token: form.controls.code.value,
+      email: form.controls.email.value,
+      password:form.controls.password.value
+    }
+    this.authService.postChangePassword(code).toPromise().then((result) => {
+          console.log(result)
+      this.snbar.openSnackBar(result.Message, "Ok")
+    })
   }
 
   private deleteProduct(modalData: any) {

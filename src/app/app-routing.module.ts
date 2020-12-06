@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthService } from 'src/providers/auth/auth.service';
+import { SettingsComponent } from './components/settings/settings.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventComponent } from './event/event.component';
@@ -13,7 +14,7 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: '', component: SidebarComponent,  canActivate : [AuthService], children: [
+  path: '', component: SidebarComponent, canActivate: [AuthService], children: [
     {
       path: 'dashboard',
       component: DashboardComponent
@@ -23,8 +24,12 @@ const routes: Routes = [{
       component: UserComponent
     },
     {
-      path:'events',
-      component:EventComponent
+      path: 'events',
+      component: EventComponent
+    },
+    {
+      path: 'settings',
+      component: SettingsComponent
     }
   ]
 },

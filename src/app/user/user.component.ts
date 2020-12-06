@@ -1,6 +1,9 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { UserModel } from '../api/models';
+import { ModalComponent } from '../components/modal/modal.component';
 import { SnackBarService } from '../components/snackbar/snackbar';
 
 
@@ -10,12 +13,15 @@ import { SnackBarService } from '../components/snackbar/snackbar';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  public formInput: FormGroup;
+  private formInput: FormGroup;
+  public users: UserModel;
+  public isLoading :boolean;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private sbar: SnackBarService
+    private sbar: SnackBarService,
+    public matDialog: MatDialog
   ) {
     this.formInput = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -24,6 +30,7 @@ export class UserComponent implements OnInit {
       lastname: ['', Validators.compose([Validators.required])],
       email: ['', Validators.compose([Validators.required])],
     });
+    this.isLoading = false
   }
 
   httpOptions = {
@@ -33,8 +40,10 @@ export class UserComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    this.http.get(`http://localhost:8000/users`, this.httpOptions).subscribe((resp) => {
-      console.log(resp)
+    this.isLoading = true;
+    this.http.get(`http://localhost:8100/api/users`, this.httpOptions).subscribe((resp: UserModel) => {
+      this.users = resp
+      this.isLoading = false
     })
   }
 
@@ -48,11 +57,33 @@ export class UserComponent implements OnInit {
         "email": this.formInput.value.email
       }
 
-      this.http.post(`http://localhost:8000/auth/signup`, userToCreate, this.httpOptions).subscribe((resp) => {
-        console.log(resp)
+      this.http.post(`http://localhost:8100/auth/signup`, userToCreate, this.httpOptions).subscribe((resp) => {
         this.sbar.openSnackBar(resp['Message'], 'ok');
       })
     }
+  }
+
+  openModalUser() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.id = "modal-component";
+    dialogConfig.data = {
+      name: "update-user",
+      title: "User modal",
+      description: "If you continue, the product with ID will be deleted.",
+      actionButtonText: "Delete",
+      confirmText: "Modifier",
+      productId: "test",
+      template: 2,
+      loading: false,
+      step: 0,
+      errors: {
+        email: false,
+        password: false,
+        confirmPassword: false,
+        token: false,
+      }
+    }
+    this.matDialog.open(ModalComponent, dialogConfig);
   }
 
 }

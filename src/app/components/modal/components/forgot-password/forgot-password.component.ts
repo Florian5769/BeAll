@@ -21,7 +21,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.formGroup.addControl("email", new FormControl('', [Validators.email,Validators.required]));
     this.formGroup.addControl("code", new FormControl('', [Validators.required]));
     this.formGroup.addControl("password", new FormControl('', [Validators.required]));
-    this.formGroup.addControl("confirm-password", new FormControl('', [Validators.required]));
+    this.formGroup.addControl("confirmPassword", new FormControl('', [Validators.required]));
   }
 
 }

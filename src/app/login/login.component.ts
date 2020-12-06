@@ -95,9 +95,13 @@ export class LoginComponent implements OnInit {
       confirmText:"Continuer",
       productId: "test",
       template : 1,
+      loading:false,
       step:0,
       errors:{
-        email : false
+        email : false,
+        password:false,
+        confirmPassword:false,
+        token:false,
       }
     }
     

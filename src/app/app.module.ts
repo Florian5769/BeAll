@@ -21,6 +21,7 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { TokenInterceptorService } from 'src/providers/token-interceptor/token-interceptor.service';
 import { ModalComponent } from './components/modal/modal.component';
 import { ForgotPasswordComponent } from './components/modal/components/forgot-password/forgot-password.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ForgotPasswordComponent } from './components/modal/components/forgot-pa
     TopbarComponent,
     ModalComponent,
     ForgotPasswordComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,3 +11,44 @@ nav .nav-content{
     align-items: center;  
     justify-content: space-between;
 }
+
+
+/* Switch 1 Specific Styles Start */
+input[type="checkbox"].switch_1{
+    font-size: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 0.6em;
+    border-radius: 3em;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid #040404;
+    vertical-align: middle;
+  }
+  
+  input[type="checkbox"].switch_1:checked{
+    border-color: #0ebeff !important;
+  }
+  
+  input[type="checkbox"].switch_1:after{
+    position: absolute;
+    content: "";
+    width: 0.4em;
+    height: 0.4em;
+    border-radius: 50%;
+    background: #000;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.3);
+    left: 2px;
+    transition: all 0.2s ease-in-out;
+    top: 1px;
+  }
+  
+  input[type="checkbox"].switch_1:checked:after{
+    left: calc(100% - 0.5em);
+    background: #2196f3 !important;
+  }
+/* Switch 1 Specific Style End */

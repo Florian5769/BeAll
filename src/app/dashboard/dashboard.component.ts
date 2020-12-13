@@ -10,8 +10,7 @@ export class DashboardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().setResizable(true)
+
   }
 
 }

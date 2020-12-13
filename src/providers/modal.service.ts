@@ -61,8 +61,6 @@ export class ModalActionsService {
   private saveNewPassWord(modalData, form, ref) {
     let errors = false;
 
-    console.log(modalData,form.controls)
-
     if(form.controls.code.errors) {
       modalData.errors.token = true
       errors = true
@@ -79,15 +77,23 @@ export class ModalActionsService {
     }
 
     if(!errors){
+      modalData.loading = true;
       const code: UserModel = {
         token: form.controls.code.value,
         email: form.controls.email.value,
         password: form.controls.password.value
       }
       this.authService.postChangePassword(code).toPromise().then((result) => {
-        this.snbar.openSnackBar(result.Message, "Ok")
+
+        if(result.Message)
+          {
+            modalData.loading = false;
+            ref.close();
+            this.snbar.openSnackBar(result.Message, "Ok")
+          }
       })
 
+    
       return
     }
     

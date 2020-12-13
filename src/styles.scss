@@ -38,7 +38,6 @@ $ERP-theme: mat-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 
-
 html, body { height: 100%; }
 img {
   -webkit-user-drag: none;
@@ -67,6 +66,7 @@ body {
 
 .mat-dialog-container{
   background: unset;
+  box-shadow: none;
 }
 
 .logo{
@@ -98,6 +98,12 @@ h2,h4{
 
 h4{
   font-size: 20px;
+}
+
+.top-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
@@ -156,9 +162,21 @@ header{
   margin-bottom: 5px;
 }
 
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing{
+  opacity: 0;
+}
 
+.roles::first-letter{
+  text-transform: uppercase;
+}
 
+.filters{
+  margin-bottom: 20px;
+}
 
+.no-bg{
+  background-color: transparent !important;
+}
 
 //spinner
 .spinner {

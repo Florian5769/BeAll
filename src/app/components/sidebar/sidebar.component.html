@@ -14,6 +14,12 @@
                         <svg style="width: 23px" xmlns="http://www.w3.org/2000/svg" [attr.viewBox]="list.svg">
                                 <path [attr.d]="list.path" />
                                 <path *ngIf="list.path2" [attr.d]="list.path2" />
+                                <path *ngIf="list.path3" [attr.d]="list.path3" />
+                                <path *ngIf="list.path4" [attr.d]="list.path4" />
+                                <path *ngIf="list.path5" [attr.d]="list.path5" />
+                                <path *ngIf="list.path6" [attr.d]="list.path6" />
+                                <path *ngIf="list.path7" [attr.d]="list.path7" />
+                                <path *ngIf="list.path8" [attr.d]="list.path8" />
                             </svg>  
                         <span>{{list.name}}</span>
                     </div>
@@ -21,7 +27,7 @@
             </ng-container>
         </div>
     </div>
-    <div class="app-content" style="">
+    <div class="app-content">
         <app-topbar></app-topbar>
         <div style="padding:20px 20px;">
             <router-outlet></router-outlet>

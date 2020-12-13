@@ -35,14 +35,14 @@
               <div class="mt-2">
                   <form [formGroup]="formGroup">
                     <app-forgot-password *ngIf="modalData.template == 1" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
-                    <app-user-modal *ngIf="modalData.template == 2" [formGroup]="formGroup" [data]="modalData"></app-user-modal>
+                    <app-user-modal *ngIf="modalData.template == 2"></app-user-modal>
                   </form>
               </div>
             </div>
           </div>
         </div>
         <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-          <button type="button" (click)="actionFunction()" style="background-color: #2196F3;" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+          <button [disabled]="modalData.loading ? 'disabled': null" type="button" (click)="actionFunction()" style="background-color: #2196F3;" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
             <span *ngIf="!modalData.loading">{{ modalData.confirmText }}</span>
             <div class="spinner" *ngIf="modalData.loading">
               <div class="bounce1"></div>

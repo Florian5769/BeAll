@@ -4,7 +4,7 @@ export interface UserModel {
     username?: string;
     firstname?: string;
     lastname?: string;
-    role?: 'Admin' | 'Subscriber';
+    roles?: 'admin' | 'user' | 'moderator';
     createdAt?: Date;
     updatedAt?: Date;
     token?: string;
@@ -14,4 +14,6 @@ export interface UserModel {
     gender?: 'Male' | 'Female';
     birthyear?: number;
     image?: string;
+    subscribe?:boolean;
+    plan?:number;
 }

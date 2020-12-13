@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from '../api/models';
-import { ModalComponent } from '../components/modal/modal.component';
+import { SlideOversComponent } from '../components/slide-overs/slide-overs.component';
 import { SnackBarService } from '../components/snackbar/snackbar';
 
 
@@ -16,6 +16,7 @@ export class UserComponent implements OnInit {
   private formInput: FormGroup;
   public users: UserModel;
   public isLoading :boolean;
+  public showFilter:boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,6 +32,7 @@ export class UserComponent implements OnInit {
       email: ['', Validators.compose([Validators.required])],
     });
     this.isLoading = false
+    this.showFilter = false
   }
 
   httpOptions = {
@@ -42,6 +44,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.http.get(`http://localhost:8100/api/users`, this.httpOptions).subscribe((resp: UserModel) => {
+      console.log(resp)
       this.users = resp
       this.isLoading = false
     })
@@ -63,7 +66,7 @@ export class UserComponent implements OnInit {
     }
   }
 
-  openModalUser() {
+  openSlideOverUser() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.id = "modal-component";
     dialogConfig.data = {
@@ -81,9 +84,14 @@ export class UserComponent implements OnInit {
         password: false,
         confirmPassword: false,
         token: false,
-      }
+      },
+      bite : "tabite"
     }
-    this.matDialog.open(ModalComponent, dialogConfig);
+    this.matDialog.open(SlideOversComponent, dialogConfig);
+  }
+
+  openFilters(){
+    this.showFilter = !this.showFilter
   }
 
 }

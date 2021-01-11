@@ -36,7 +36,7 @@ class AuthService extends __BaseService {
     __body = CheckCredentialModel;
     let req = new HttpRequest<any>(
       'POST',
-      this.rootUrl + `/auth/login`,
+      this.rootUrl + `/auth/signin`,
       __body,
       {
         headers: __headers,

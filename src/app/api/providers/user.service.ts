@@ -7,6 +7,7 @@ import { StrictHttpResponse as __StrictHttpResponse } from '../strict-http-respo
 import { Observable as __Observable } from 'rxjs';
 import { map as __map, filter as __filter } from 'rxjs/operators';
 import { UserModel } from '../models/user.model';
+import { trigger } from '@angular/animations';
 
 @Injectable({
     providedIn: 'root',
@@ -37,7 +38,7 @@ class UserService extends __BaseService {
   */
     getUserResponse(params: UserService.GetUserParams): __Observable<__StrictHttpResponse<Array<UserModel>>> {
         let __params = this.newParams();
-        let __headers = new HttpHeaders();
+        let __headers = new HttpHeaders()
         let __body: any = null;
         if (params.role != null) __params = __params.set('role', params.role.toString());
         if (params.name != null) __params = __params.set('name', params.name.toString());
@@ -45,7 +46,7 @@ class UserService extends __BaseService {
         if (params.email != null) __params = __params.set('email', params.email.toString());
         let req = new HttpRequest<any>(
             'GET',
-            this.rootUrl + `/user`,
+            this.rootUrl + `/test/user`,
             __body,
             {
                 headers: __headers,
@@ -75,6 +76,59 @@ class UserService extends __BaseService {
      */
     getUser(params: UserService.GetUserParams): __Observable<Array<UserModel>> {
         return this.getUserResponse(params).pipe(
+            __map(_r => _r.body as Array<UserModel>)
+        );
+    }
+
+    /**
+* @param params The `UserService.GetUserParams` containing the following parameters:
+*
+* - `role`: role to retrieve
+*
+* - `name`: Name to retrieve
+*
+* - `lastname`: Lastname to retrieve
+*
+* - `email`: Email to retrieve
+*
+* @return All users
+*/
+    getUsersResponse(): __Observable<__StrictHttpResponse<Array<UserModel>>> {
+        let __params = this.newParams();
+        let __headers = new HttpHeaders();
+        let __body: any = null;
+        let req = new HttpRequest<any>(
+            'GET',
+            this.rootUrl + `/test/users`,
+            __body,
+            {
+                headers: __headers,
+                params: __params,
+                responseType: 'json'
+            });
+
+        return this.http.request<any>(req).pipe(
+            __filter(_r => _r instanceof HttpResponse),
+            __map((_r) => {
+                return _r as __StrictHttpResponse<Array<UserModel>>;
+            })
+        );
+    }
+    /**
+     * @param params The `UserService.GetUserParams` containing the following parameters:
+     *
+     * - `role`: role to retrieve
+     *
+     * - `name`: Name to retrieve
+     *
+     * - `lastname`: Lastname to retrieve
+     *
+     * - `email`: Email to retrieve
+     *
+     * @return All users
+     */
+    getUsers(): __Observable<Array<UserModel>> {
+        return this.getUsersResponse().pipe(
             __map(_r => _r.body as Array<UserModel>)
         );
     }

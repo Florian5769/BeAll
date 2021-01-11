@@ -5,6 +5,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { UserModel } from '../api/models';
 import { SlideOversComponent } from '../components/slide-overs/slide-overs.component';
 import { SnackBarService } from '../components/snackbar/snackbar';
+import { UserService } from "../api/providers/user.service"
 
 
 @Component({
@@ -14,15 +15,16 @@ import { SnackBarService } from '../components/snackbar/snackbar';
 })
 export class UserComponent implements OnInit {
   private formInput: FormGroup;
-  public users: UserModel;
-  public isLoading :boolean;
-  public showFilter:boolean;
+  public isLoading: boolean;
+  public showFilter: boolean;
+  users: UserModel[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private sbar: SnackBarService,
-    public matDialog: MatDialog
+    public matDialog: MatDialog,
+    public UserService: UserService
   ) {
     this.formInput = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -43,11 +45,18 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoading = true;
-    this.http.get(`http://localhost:8100/api/users`, this.httpOptions).subscribe((resp: UserModel) => {
-      console.log(resp)
-      this.users = resp
-      this.isLoading = false
-    })
+    this.UserService.getUsers().toPromise().then(
+      (data) => {
+        this.isLoading = false;
+        if (!data) {
+          return
+        } else {
+          this.users = data as UserModel[];
+          return;
+        }
+      },
+      // error => { this.isLoading = false; this.snbar.openSnackBar(error.message, 'OK') }
+    )
   }
 
   createUser() {
@@ -85,12 +94,12 @@ export class UserComponent implements OnInit {
         confirmPassword: false,
         token: false,
       },
-      bite : "tabite"
+      bite: "tabite"
     }
     this.matDialog.open(SlideOversComponent, dialogConfig);
   }
 
-  openFilters(){
+  openFilters() {
     this.showFilter = !this.showFilter
   }
 

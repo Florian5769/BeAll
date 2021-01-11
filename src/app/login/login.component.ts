@@ -59,14 +59,14 @@ export class LoginComponent implements OnInit {
         (resp: LoginResponseModel) => {
           this.isLoading = false;
           this.errMessage = resp.Message;
-          if (resp.Status != 200) {
+          if (!resp) {
             this.usernameError = true;
             this.passwordError = true;
             this.snbar.openSnackBar(this.errMessage, 'OK')
             return
           } else {
             //we set the cookie
-            this.cookieServ.set('token', resp.Token);
+            this.cookieServ.set('token', resp.accessToken);
 
             //go to dashboard
             this.router.navigateByUrl('/dashboard');
@@ -92,19 +92,19 @@ export class LoginComponent implements OnInit {
       title: "Mot de passe oublié",
       description: "If you continue, the product with ID will be deleted.",
       actionButtonText: "Delete",
-      confirmText:"Continuer",
+      confirmText: "Continuer",
       productId: "test",
-      template : 1,
-      loading:false,
-      step:0,
-      errors:{
-        email : false,
-        password:false,
-        confirmPassword:false,
-        token:false,
+      template: 1,
+      loading: false,
+      step: 0,
+      errors: {
+        email: false,
+        password: false,
+        confirmPassword: false,
+        token: false,
       }
     }
-    
+
     this.matDialog.open(ModalComponent, dialogConfig);
   };
 

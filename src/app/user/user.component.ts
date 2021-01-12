@@ -44,6 +44,7 @@ export class UserComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    console.log(window)
     this.isLoading = true;
     this.UserService.getUsers().toPromise().then(
       (data) => {

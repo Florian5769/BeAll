@@ -1,6 +1,6 @@
 /* tslint:disable */
 export interface LoginResponseModel {
-  accessToken: string;
+  token: string;
   Status: number;
   Message: string;
 }

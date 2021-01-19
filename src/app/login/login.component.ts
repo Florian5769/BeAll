@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
             return
           } else {
             //we set the cookie
-            this.cookieServ.set('token', resp.accessToken);
+            this.cookieServ.set('tokens', resp.token);
 
             //go to dashboard
             this.router.navigateByUrl('/dashboard');

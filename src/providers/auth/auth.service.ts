@@ -14,7 +14,7 @@ export class AuthService implements CanActivate {
     ) { }
 
     getToken(): string {
-        return this.cookieSrv.get('token');
+        return this.cookieSrv.get('tokens');
     }
 
     isAuthenticated(): boolean {

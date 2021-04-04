@@ -1,7 +1,92 @@
 <div>
-    <h4>
-        Dashboard
-    </h4>
+  <div class="top-div">
+    <h4>Dashboard</h4>
+    <button
+      class="flex flex-center custom-button w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+      (click)="openModal()"
+    >
+      Crée un le saviez-vous
+    </button>
+  </div>
+
+  <div class="flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Auteur
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Date de création
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Sport
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                <div>Mentions</div>
+                <div class="flex items-center space-x-2">
+                  <div>
+                    pouce bleu
+                    <!-- Ajout Icon pouceBleu -->
+                  </div>
+                  <div>
+                    pouce rouge
+                    <!--  Ajout Icon pouceRouge -->
+                  </div>
+                </div>
+              </th>
+              <th
+                scope="col"
+                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+              >
+                Disponible
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr *ngFor="let data of datas">
+              <td
+                class="px-6 py-4 whitespace-nowrap flex items-center space-x-2"
+              >
+                <img
+                  class="h-8 w-8 rounded-full object-cover"
+                  src="{{ data.userimage }}"
+                  alt=""
+                />
+                <span>{{ data.username }}</span>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ data.dyk.createdAt }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ data.dyk.sportName }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ data.dyk.nbrLike }}
+                {{ data.dyk.nbrDislike }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ data.dyk.isActive }}
+                <!-- TO DO convertir boolean isActive trigger css sur un badge -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
-
-

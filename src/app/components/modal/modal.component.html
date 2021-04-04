@@ -36,6 +36,7 @@
                   <form [formGroup]="formGroup">
                     <app-forgot-password *ngIf="modalData.template == 1" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
                     <app-user-modal *ngIf="modalData.template == 2"></app-user-modal>
+                    <app-did-you-knew *ngIf="modalData.template == 3" [formGroup]="formGroup" [data]="modalData"></app-did-you-knew>
                   </form>
               </div>
             </div>

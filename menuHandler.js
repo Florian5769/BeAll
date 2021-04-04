@@ -1,5 +1,3 @@
-
-
 export function displayLog(){
     var { BrowserWindow } = require('electron')
 

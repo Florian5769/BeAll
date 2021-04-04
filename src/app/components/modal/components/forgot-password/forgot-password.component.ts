@@ -9,7 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 export class ForgotPasswordComponent implements OnInit {
 
   @Input() formGroup: FormGroup;
-  @Input() data;
+  @Input() data: any;
 
   constructor(
     public formBuilder: FormBuilder

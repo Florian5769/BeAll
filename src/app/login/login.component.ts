@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit {
       title: "Mot de passe oublié",
       description: "If you continue, the product with ID will be deleted.",
       actionButtonText: "Delete",
-      confirmText: "Continuer",
+      confirmText: "Confitm",
       productId: "test",
       template: 1,
       loading: false,

@@ -26,6 +26,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SlideOversComponent } from './components/slide-overs/slide-overs.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { DidYouKnewComponent } from './components/modal/components/did-you-knew/did-you-knew.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ArticlesComponent } from './articles/articles.component';
     UserModalComponent,
     SlideOversComponent,
     TransactionsComponent,
-    ArticlesComponent
+    ArticlesComponent,
+    DidYouKnewComponent
   ],
   imports: [
     BrowserModule,

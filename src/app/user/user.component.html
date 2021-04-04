@@ -53,7 +53,7 @@
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                   <div class="flex-shrink-0 h-10 w-10">
-                    <img class="h-10 w-10 rounded-full" [src]="user.profilImage" alt="">
+                    <img class="h-10 w-10 rounded-full object-cover" [src]="user.profilImage" alt="">
                   </div>
                   <div class="ml-4">
                     <div class="text-sm font-medium text-gray-900">
@@ -92,8 +92,6 @@
             <!-- More rows... -->
           </tbody>
         </table>
-
-
       </div>
     </div>
   </div>
@@ -105,69 +103,3 @@
 </div>
  
 </div>
-
-
-<!--  form for create user, use in modal are new page
-<form [formGroup]="formInput">
-  <div class="login-form-input">
-    <label for="">Nom d'utilisateur</label>
-    <input
-      type="text"
-      required
-      placeholder="Identifiant"
-      class="login-form-input-text"
-      autocomplete="username"
-      formControlName="username"/>
-  </div>
-
-  <div class="login-form-input">
-      <label for="">Email</label>
-      <input
-        type="text"
-        required
-        placeholder="Identifiant"
-        class="login-form-input-text"
-        autocomplete="email-new"
-        formControlName="email"/>
-    </div>
-
-    <div class="login-form-input">
-      <label for="">Prénom</label>
-      <input
-        type="text"
-        required
-        placeholder="Identifiant"
-        class="login-form-input-text"
-        autocomplete="firstname"
-        formControlName="firstname"/>
-    </div>
-
-    <div class="login-form-input">
-      <label for="">Nom</label>
-      <input
-        type="text"
-        required
-        placeholder="Identifiant"
-        class="login-form-input-text"
-        autocomplete="lastname"
-        formControlName="lastname"/>
-    </div>
-
-  <div class="login-form-input">
-      <label for="">Mot de passe</label>
-    <input
-      type="password"
-      required
-      placeholder="Mot de passe"
-      class="login-form-input-text"
-      autocomplete="new-password"
-      formControlName="password"/>
-  </div>
-
-  <div class="login-form-btn-container">
-    <button (click)="createUser()"
-      class="login-form-btn">
-      <span  style="line-height: 24px;">Créer</span>
-    </button>
-  </div>
-</form> -->

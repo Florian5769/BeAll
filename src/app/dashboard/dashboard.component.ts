@@ -3,40 +3,69 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ModalComponent } from "../components/modal/modal.component";
 import { DidYouKnewService } from "../api/providers/didYouKnew.service";
 import { DidYouKnewModel } from "../api/models/didYouKnew.model";
+import { DidYouKnewsModel } from "../api/models/didYouKnews.model";
+import { SlideOversComponent } from '../components/slide-overs/slide-overs.component';
+import { SnackBarService } from '../components/snackbar/snackbar';
+import { Observable } from "rxjs";
+
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.scss"],
 })
+
 export class DashboardComponent implements OnInit {
-  datas: DidYouKnewModel[] = [];
+  datas: DidYouKnewsModel[] = [];
 
   constructor(
     public matDialog: MatDialog,
-    private Dyk: DidYouKnewService
-  ) {}
+    private Dyk: DidYouKnewService,
+    private snbar: SnackBarService) {}
 
   public showModal: boolean;
 
   ngOnInit(): void {
-    this.getDidYouKnews()
+    this.getDidYouKnews();
   }
 
-  getDidYouKnew = () => (
-    this.Dyk.getDidYouKnew()
+  getDidYouKnew = (id: string) => {
+    this.Dyk.getDidYouKnew(id)
       .toPromise()
-      .then(result => {
+      .then((result: DidYouKnewModel) => {
+        if (result) {
+          let dialogConfig = new MatDialogConfig();
+          dialogConfig.id = "slide-over";
+          dialogConfig.data = {
+            profilImage: result.userImage,
+            email: result.email,
+            username: result.username,
+            lastname: result.lastname,
+            dyk: result.dyk
+          };
+          let dialog = this.matDialog.open(SlideOversComponent, dialogConfig);
+        }
+      });
+  }
 
-      }
-  ))
+  deleteDidYouKnew(id: string) {
+    this.Dyk.deleteDidYouKnew(id)
+      .toPromise()
+      .then((result: DidYouKnewModel) => {
+        if (result.deleted === true) {
+          this.snbar.openSnackBar("L'article à bien été supprimé", 'OK')
+          this.getDidYouKnews()
+        } else {
+          this.snbar.openSnackBar("Problème lors de la suppression", 'OK')
+        }
+      })
+  }
 
   getDidYouKnews = () => {
     this.Dyk.getDidYouKnews()
       .toPromise()
-      .then((result) => {
-        result.length > 0 ? (this.datas = result as DidYouKnewModel[]) : false;
-        console.log(result)
+      .then((result: DidYouKnewsModel[]) => {
+        result.length > 0 ? (this.datas = result) : false;
       });
   };
 
@@ -61,8 +90,8 @@ export class DashboardComponent implements OnInit {
     let dialog = this.matDialog.open(ModalComponent, dialogConfig);
 
     dialog.afterClosed().subscribe(() => {
-      this.getDidYouKnews()
-    })
+      this.getDidYouKnews();
+    });
   };
 
   hideModal() {

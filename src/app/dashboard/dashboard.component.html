@@ -89,9 +89,8 @@
                 <!-- TO DO convertir boolean isActive trigger css sur un badge -->
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
-                <button class="actionBtn">voir</button>
-                <button class="actionBtn">modifie</button>
-                <button class="actionBtn">del</button>
+                <button class="actionBtn" (click)="getDidYouKnew(data.dyk._id)">voir</button>
+                <button class="actionBtn" (click)="deleteDidYouKnew(data.dyk._id)">del</button>
               </td>
             </tr>
           </tbody>

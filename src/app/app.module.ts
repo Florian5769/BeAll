@@ -12,7 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserComponent } from './user/user.component';
 import { UserModalComponent } from './components/modal/components/user/user.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';

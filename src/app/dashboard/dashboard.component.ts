@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ModalComponent } from "../components/modal/modal.component";
 import { DidYouKnewService } from "../api/providers/didYouKnew.service";
@@ -15,7 +14,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     public matDialog: MatDialog,
-    private fb: FormBuilder,
     private Dyk: DidYouKnewService
   ) {}
 
@@ -24,6 +22,14 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDidYouKnews()
   }
+
+  getDidYouKnew = () => (
+    this.Dyk.getDidYouKnew()
+      .toPromise()
+      .then(result => {
+
+      }
+  ))
 
   getDidYouKnews = () => {
     this.Dyk.getDidYouKnews()
@@ -52,7 +58,11 @@ export class DashboardComponent implements OnInit {
       },
     };
 
-    this.matDialog.open(ModalComponent, dialogConfig);
+    let dialog = this.matDialog.open(ModalComponent, dialogConfig);
+
+    dialog.afterClosed().subscribe(() => {
+      this.getDidYouKnews()
+    })
   };
 
   hideModal() {

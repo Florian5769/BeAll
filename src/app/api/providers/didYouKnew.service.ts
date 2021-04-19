@@ -65,6 +65,36 @@ class DidYouKnewService extends __BaseService {
   /**
    * @param params The `UserService.GetUserParams` containing the following parameters:
    *
+   * @return One article depends on IdArticle given in Arg
+   */
+  getDidYouKnewResponse(id: string): __Observable<
+    __StrictHttpResponse<Array<DidYouKnewModel>>
+  > {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    let req = new HttpRequest<any>(
+      "GET",
+      this.rootUrl + `/didYouKnew/${id}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: "json",
+      }
+    );
+
+    return this.http.request<any>(req).pipe(
+      __filter((_r) => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<Array<DidYouKnewModel>>;
+      })
+    );
+  }
+
+  /**
+   * @param params The `UserService.GetUserParams` containing the following parameters:
+   *
    * @return All didyouknew
    */
   getDidYouKnewsResponse(): __Observable<
@@ -91,6 +121,21 @@ class DidYouKnewService extends __BaseService {
       })
     );
   }
+
+  /**
+   * @param params The `UserService.GetUserParams` containing the following parameters:
+   * - `role`: role to retrieve
+   * - `name`: Name to retrieve
+   * - `lastname`: Lastname to retrieve
+   * - `email`: Email to retrieve
+   * @returns One article depends on IdArticle given in Arg
+   */
+  getDidYouKnew(id: string): __Observable<Array<DidYouKnewModel>> {
+    return this.getDidYouKnewResponse(id).pipe(
+      __map((_r) => _r.body as Array<DidYouKnewModel>)
+    );
+  }
+
   /**
    * @param params The `UserService.GetUserParams` containing the following parameters:
    *
@@ -104,7 +149,7 @@ class DidYouKnewService extends __BaseService {
    *
    * @return All users
    */
-   getDidYouKnews(): __Observable<Array<DidYouKnewModel>> {
+  getDidYouKnews(): __Observable<Array<DidYouKnewModel>> {
     return this.getDidYouKnewsResponse().pipe(
       __map((_r) => _r.body as Array<DidYouKnewModel>)
     );

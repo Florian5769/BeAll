@@ -27,6 +27,7 @@ import { SlideOversComponent } from './components/slide-overs/slide-overs.compon
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { DidYouKnewComponent } from './components/modal/components/did-you-knew/did-you-knew.component';
+import { ViewDykComponent } from './components/slide-overs/templates/view-dyk/view-dyk.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { DidYouKnewComponent } from './components/modal/components/did-you-knew/
     SlideOversComponent,
     TransactionsComponent,
     ArticlesComponent,
-    DidYouKnewComponent
+    DidYouKnewComponent,
+    ViewDykComponent
   ],
   imports: [
     BrowserModule,

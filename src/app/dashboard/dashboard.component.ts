@@ -36,12 +36,17 @@ export class DashboardComponent implements OnInit {
         if (result) {
           let dialogConfig = new MatDialogConfig();
           dialogConfig.id = "slide-over";
+          console.log(result)
           dialogConfig.data = {
+            title: "Le saviez-vous ?",
             profilImage: result.userImage,
+            roles: result.roles,
+            firstname: result.firstname,
+            lastname: result.lastname,
             email: result.email,
             username: result.username,
-            lastname: result.lastname,
-            dyk: result.dyk
+            dyk: result.dyk,
+            template: "viewDyk",
           };
           let dialog = this.matDialog.open(SlideOversComponent, dialogConfig);
         }

@@ -4,7 +4,7 @@
  * Created Date: Monday, April 19th 2021, 9:11:23 pm
  * Author: Alexis Brossette
  * -----
- * Last Modified: Mon Apr 19 2021
+ * Last Modified: Sun Apr 25 2021
  * Modified By: Alexis Brossette
  * -----
  * Copyright (c) 2021 BeAll
@@ -15,10 +15,12 @@
 export interface DidYouKnewModel {
   dyk: Object;
   _id: String;
+  userId: String;
   userImage: String;
   email: String;
   username: String;
   firstname: String;
   lastname: String;
   deleted: Boolean;
+  roles: [],
 }

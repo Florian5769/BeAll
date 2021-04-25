@@ -140,6 +140,7 @@ class DidYouKnewService extends __BaseService {
    * @returns One article depends on IdArticle given in Arg
    */
   getDidYouKnew(id: string): __Observable<DidYouKnewModel> {
+    console.log(this.getDidYouKnewResponse(id))
     return this.getDidYouKnewResponse(id).pipe(
       __map((_r) => _r.body as DidYouKnewModel)
     );

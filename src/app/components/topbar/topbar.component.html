@@ -1,43 +1,65 @@
+<!--
+Filename: d:\BE-ALL-SOFT-FRONT\src\app\components\topbar\topbar.component.html
+Path: d:\BE-ALL-SOFT-FRONT
+Created Date: Monday, November 30th 2020, 9:38:05 am
+Author: Franck Ehui
+
+Copyright (c) 2021 BeAll
+-->
+
 <nav>
     <div class="nav-content" style="position: relative;">
         <div class="search">
             <input type="text" name="search" placeholder="Search" />
         </div>
-        <div class="flex -space-x-2" >
-            <button 
+        <div class="flex -space-x-2">
+            <button
                 class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
-                    <img #toggleButton
-                    class="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" 
-                    alt=""
-                    (click)="openDropdown()"
-            >
+                <img #toggleButton class="h-8 w-8 rounded-full" src="{{ user.userimage }}" alt=""
+                    (click)="openDropdown()">
             </button>
-            <div #menu style="top:50px;right:20px" [ngStyle]="{'display': isOpen === false ? 'none' : 'block' }" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div #menu style="top:50px;right:20px" [ngStyle]="{'display': isOpen === false ? 'none' : 'block' }"
+                class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                 <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                    <a [routerLink]="'/settings'"  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">
-                       <span>Paramètres</span> 
-                    </a>
-                    <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
-                        <span>Langue</span>
-                    </button>
-                    <button style="display: flex; align-items: center; justify-content: space-between;" 
-                            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" 
+
+                    <div class="px-4 py-2 flex items-center space-x-2">
+                        <img class="h-11 w-11 rounded-full" src="{{ user.userimage }}">
+                        <div>
+                            <p>{{ user.username }}</p>
+                        </div>
+                    </div>
+
+                    <button [routerLink]="'/settings'" class="block w-full text-left">
+                        <a
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             role="menuitem">
+                            <span>Paramètres</span>
+                        </a>
+                    </button>
+
+
+                    <button style="display: flex; align-items: center; justify-content: space-between;"
+                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                        role="menuitem">
                         <span>Thème</span>
                         <div class="switch_box box_1">
                             <input type="checkbox" class="switch_1">
                         </div>
                     </button>
+
                     <div class="divider"></div>
-                    <button (click)="logout()" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                    <button (click)="logout()"
+                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                        role="menuitem">
                         <span>Déconnexion</span>
                     </button>
-                    <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                    <button
+                        class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                        role="menuitem">
                         <span>Quitter</span>
                     </button>
                 </div>
-              </div>
-          </div>
+            </div>
+        </div>
     </div>
 </nav>

@@ -1,2 +1,1 @@
-// exports all models
-export { UserModel } from './models/user.model';
+export { Auth } from './models/auth';

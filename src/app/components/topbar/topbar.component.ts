@@ -1,3 +1,21 @@
+/*
+ * File: topbar.component.ts                                                   *
+ * Project: erp                                                                *
+ * Created Date: Mo Nov yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Sun Apr 25 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2020 - 2021 BeAll                                             *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AuthService } from 'src/providers/auth/auth.service';
 
@@ -12,12 +30,16 @@ export class TopbarComponent implements OnInit {
   @ViewChild('menu') menu: ElementRef;
 
   public isOpen: boolean;
+  public user: string;
+  public userImage: string;
 
   constructor(
     private renderer: Renderer2,
-    private authService : AuthService
+    private authService: AuthService
   ) {
     this.isOpen = false;
+    this.user = JSON.parse(localStorage.getItem("user"));
+    
     this.renderer.listen('window', 'click', (e: Event) => {
       /**
        * Only run when toggleButton is not clicked
@@ -41,7 +63,7 @@ export class TopbarComponent implements OnInit {
   }
 
   logout() {
-      this.authService.logout()
+    this.authService.logout()
   }
 
 }

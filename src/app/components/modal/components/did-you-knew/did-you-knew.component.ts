@@ -1,3 +1,20 @@
+/*
+ * File: did-you-knew.component.ts                                             *
+ * Project: erp                                                                *
+ * Created Date: Su Apr yyyy                                                   *
+ * Author: <<author>                                                           *
+ * -----                                                                       *
+ * Last Modified: Mon Apr 19 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 Bodkin World Domination Enterprises                      *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
 import {
   Component,
   ElementRef,
@@ -76,7 +93,6 @@ export class DidYouKnewComponent implements OnInit {
       "content",
       new FormControl("", [
         Validators.required,
-        Validators.maxLength(255),
         Validators.minLength(1),
       ])
     );

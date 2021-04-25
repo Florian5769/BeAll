@@ -26,6 +26,7 @@
     "@auth0/angular-jwt": "^5.0.2",
     "axios": "^0.21.1",
     "electron-reloader": "^1.0.1",
+    "ng-swagger-gen": "^2.2.0",
     "ngx-cookie-service": "^10.1.1",
     "ngx-electron": "^2.2.0",
     "rxjs": "~6.6.3",

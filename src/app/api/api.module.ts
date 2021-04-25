@@ -1,21 +1,27 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+/* tslint:disable */
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from './providers/user.service';
 import { ApiConfiguration, ApiConfigurationInterface } from './api-configuration';
 
+import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+
+/**
+ * Provider for all Api services, plus ApiConfiguration
+ */
 @NgModule({
-  declarations: [],
   imports: [
-    HttpClientModule,
-    CommonModule
+    HttpClientModule
   ],
   exports: [
     HttpClientModule
   ],
+  declarations: [],
   providers: [
+    ApiConfiguration,
+    AuthService,
     UserService
-  ]
+  ],
 })
 export class ApiModule {
   static forRoot(customParams: ApiConfigurationInterface): ModuleWithProviders<ApiModule> {
@@ -24,7 +30,7 @@ export class ApiModule {
       providers: [
         {
           provide: ApiConfiguration,
-          useValue: { rootUrl: customParams.rootUrl }
+          useValue: {rootUrl: customParams.rootUrl}
         }
       ]
     }

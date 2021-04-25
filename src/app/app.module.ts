@@ -1,3 +1,21 @@
+/*
+ * File: app.module.ts                                                         *
+ * Project: erp                                                                *
+ * Created Date: Mo Apr yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Sun Apr 25 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,6 +45,7 @@ import { SlideOversComponent } from './components/slide-overs/slide-overs.compon
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { DidYouKnewComponent } from './components/modal/components/did-you-knew/did-you-knew.component';
+import { ElectronService } from 'src/providers/electron.service';
 
 @NgModule({
   declarations: [
@@ -61,6 +80,7 @@ import { DidYouKnewComponent } from './components/modal/components/did-you-knew/
   providers: [
     HttpClientModule,
     SnackBarService,
+    ElectronService,
     {
       provide: HTTP_INTERCEPTORS, 
       useClass: TokenInterceptorService,

@@ -1,100 +1,244 @@
+<!--
+Filename: d:\BE-ALL-SOFT-FRONT\src\app\dashboard\dashboard.component.html
+Path: d:\BE-ALL-SOFT-FRONT
+Created Date: Monday, April 19th 2021, 10:36:03 pm
+Author: Franck Ehui
+
+Copyright (c) 2021 BeAll
+-->
+
 <div>
   <div class="top-div">
     <h4>Dashboard</h4>
     <button
       class="flex flex-center custom-button w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-      (click)="openModal()"
-    >
+      (click)="openModal()">
       Crée un le saviez-vous
     </button>
   </div>
 
-  <div class="flex flex-col">
+  <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+    <!-- card -->
+
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="p-5">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <!-- Heroicon name: outline/scale -->
+            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">
+                Todo lists
+              </dt>
+              <dd>
+                <div class="text-lg font-medium text-gray-900">
+                  (3) nouvels taches
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-5 py-3">
+        <div class="text-sm">
+          <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900">
+            Tout voir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="p-5">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <!-- Heroicon name: outline/scale -->
+            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">
+                Utilisateurs actifs
+              </dt>
+              <dd>
+                <div class="text-lg font-medium text-gray-900">
+                  30
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-5 py-3">
+        <div class="text-sm">
+          <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900">
+            Tout voir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="p-5">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <!-- Heroicon name: outline/scale -->
+            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">
+                Communication
+              </dt>
+              <dd>
+                <div class="text-lg font-medium text-gray-900">
+                  Messagerie | Messagerie équipe
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-5 py-3">
+        <div class="text-sm">
+          <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900">
+            Tout voir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white overflow-hidden shadow rounded-lg">
+      <div class="p-5">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <!-- Heroicon name: outline/scale -->
+            <svg class="h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+          </div>
+          <div class="ml-5 w-0 flex-1">
+            <dl>
+              <dt class="text-sm font-medium text-gray-500 truncate">
+                Account balance
+              </dt>
+              <dd>
+                <div class="text-lg font-medium text-gray-900">
+                  $30,659.45
+                </div>
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+      <div class="bg-gray-50 px-5 py-3">
+        <div class="text-sm">
+          <a href="#" class="font-medium text-cyan-700 hover:text-cyan-900">
+            View all
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- more items -->
+  </div>
+
+  <div class="mt-6 flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <table class="min-w-full divide-y divide-gray-200">
-          <thead>
-            <tr>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Auteur
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Date de création
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Sport
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                <div>Mentions</div>
-                <div class="flex items-center space-x-2">
-                  <div>
-                    pouce bleu
-                    <!-- Ajout Icon pouceBleu -->
+        <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead>
+              <tr>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Auteur
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Date de création
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Sport
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <div>Mentions</div>
+                  <div class="flex items-center space-x-2">
+                    <div>
+                      pouce bleu
+                      <!-- Ajout Icon pouceBleu -->
+                    </div>
+                    <div>
+                      pouce rouge
+                      <!--  Ajout Icon pouceRouge -->
+                    </div>
                   </div>
-                  <div>
-                    pouce rouge
-                    <!--  Ajout Icon pouceRouge -->
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Disponible
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+              <tr *ngFor="let data of datas">
+                <td class="px-6 py-4 whitespace-nowrap flex items-center space-x-2">
+                  <img class="flex-shrink-0 h-10 w-10 rounded-full object-cover" src="{{ data.userimage }}" alt="" />
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">
+                      {{data.username}}
+                    </div>
+
+                    <div class="text-sm font-medium text-gray-500">
+                      {{data.email}}
+                    </div>
                   </div>
-                </div>
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                Disponible
-              </th>
-              <th
-                scope="col"
-                class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Actions
-              </th>
-            </tr>
-          </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
-            <tr *ngFor="let data of datas">
-              <td
-                class="px-6 py-4 whitespace-nowrap flex items-center space-x-2"
-              >
-                <img
-                  class="h-8 w-8 rounded-full object-cover"
-                  src="{{ data.userimage }}"
-                  alt=""
-                />
-                <span>{{ data.username }}</span>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                {{ data.dyk.createdAt }}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                {{ data.dyk.sportName }}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                {{ data.dyk.nbrLike }}
-                {{ data.dyk.nbrDislike }}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                {{ data.dyk.isActive }}
-                <!-- TO DO convertir boolean isActive trigger css sur un badge -->
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <button class="actionBtn" (click)="getDidYouKnew(data.dyk._id)">voir</button>
-                <button class="actionBtn" (click)="deleteDidYouKnew(data.dyk._id)">del</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  {{ data.dyk.createdAt }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  {{ data.dyk.sportName }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  {{ data.dyk.nbrLike }}
+                  {{ data.dyk.nbrDislike }}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  {{ data.dyk.isActive }}
+                  <!-- TO DO convertir boolean isActive trigger css sur un badge -->
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <button class="actionBtn" (click)="getDidYouKnew(data.dyk._id)">voir</button>
+                  <button class="actionBtn" (click)="deleteDidYouKnew(data.dyk._id)">del</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

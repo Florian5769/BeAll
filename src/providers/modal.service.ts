@@ -1,5 +1,23 @@
+/*
+ * File: modal.service.ts                                                      *
+ * Project: erp                                                                *
+ * Created Date: Su Apr yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Sun Apr 25 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Injectable } from "@angular/core";
-import { UserModel } from "src/app/api/models";
+import { UserModel } from "src/app/api/models/user.model";
 import { LoginResponseModel } from "src/app/api/models/login-response.model";
 import { AuthService } from "src/app/api/providers/auth.service";
 import { DidYouKnewService } from "src/app/api/providers/didYouKnew.service";

@@ -67,7 +67,7 @@ class DidYouKnewService extends __BaseService {
    * @param id ID to delete
    * @returns 1 if deleted 0 if not
    */
-  deleteDidYouknewresponse(
+  deleteDidYouknewResponse(
     id: string
   ): __Observable<__StrictHttpResponse<DidYouKnewModel>> {
     let __params = this.newParams();
@@ -96,7 +96,7 @@ class DidYouKnewService extends __BaseService {
    * @param id article's Id to delete
    */
   deleteDidYouKnew(id: string) {
-    return this.deleteDidYouknewresponse(id).pipe(
+    return this.deleteDidYouknewResponse(id).pipe(
       __map((_r) => _r.body as DidYouKnewModel)
     );
   }

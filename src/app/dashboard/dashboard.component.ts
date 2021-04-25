@@ -6,8 +6,8 @@ import { DidYouKnewModel } from "../api/models/didYouKnew.model";
 import { DidYouKnewsModel } from "../api/models/didYouKnews.model";
 import { SlideOversComponent } from '../components/slide-overs/slide-overs.component';
 import { SnackBarService } from '../components/snackbar/snackbar';
-import { Observable } from "rxjs";
 
+import { DidYouKnewComponent } from "../components/modal/components/did-you-knew/did-you-knew.component";
 
 @Component({
   selector: "app-dashboard",
@@ -53,10 +53,10 @@ export class DashboardComponent implements OnInit {
       .toPromise()
       .then((result: DidYouKnewModel) => {
         if (result.deleted === true) {
-          this.snbar.openSnackBar("L'article à bien été supprimé", 'OK')
-          this.getDidYouKnews()
+          this.snbar.openSnackBar("L'article à bien été supprimé", 'OK');
+          this.getDidYouKnews();
         } else {
-          this.snbar.openSnackBar("Problème lors de la suppression", 'OK')
+          this.snbar.openSnackBar("Problème lors de la suppression", 'OK');
         }
       })
   }
@@ -79,7 +79,7 @@ export class DashboardComponent implements OnInit {
       actionButtonText: "Delete",
       confirmText: "Confirmer",
       productId: "test",
-      template: 3,
+      template: "createDyk",
       loading: false,
       errors: {
         content: false,

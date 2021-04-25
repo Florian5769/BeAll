@@ -95,7 +95,6 @@ export class UserComponent implements OnInit {
         confirmPassword: false,
         token: false,
       },
-      }
     };
     this.matDialog.open(SlideOversComponent, dialogConfig);
   }

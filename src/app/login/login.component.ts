@@ -116,7 +116,7 @@ export class LoginComponent implements OnInit {
       actionButtonText: "Delete",
       confirmText: "Confitm",
       productId: "test",
-      template: 1,
+      template: "forgotPassword",
       loading: false,
       step: 0,
       errors: {
@@ -124,8 +124,8 @@ export class LoginComponent implements OnInit {
         password: false,
         confirmPassword: false,
         token: false,
-      }
-    }
+      },
+    };
 
     this.matDialog.open(ModalComponent, dialogConfig);
   };

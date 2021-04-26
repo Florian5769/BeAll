@@ -16,7 +16,7 @@ export class SlideOversComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<SlideOversComponent>,
     private slideService: SlideActionsService,
-    @Inject(MAT_DIALOG_DATA) public slideData: any,
+    @Inject(MAT_DIALOG_DATA) public slideOverData: any,
     private renderer: Renderer2,
   ) {
     this.finishOpen = false;

@@ -86,7 +86,7 @@ export class UserComponent implements OnInit {
       actionButtonText: "Delete",
       confirmText: "Modifier",
       productId: "test",
-      template: 2,
+      template: "viewUser",
       loading: false,
       step: 0,
       errors: {
@@ -95,8 +95,7 @@ export class UserComponent implements OnInit {
         confirmPassword: false,
         token: false,
       },
-      bite: "tabite"
-    }
+    };
     this.matDialog.open(SlideOversComponent, dialogConfig);
   }
 

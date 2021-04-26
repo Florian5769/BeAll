@@ -42,10 +42,13 @@ Copyright (c) 2021 Bodkin & Bodkin Ltd
             <div style="width: 100%;" class="mt-3 text-center sm:mt-0 sm:text-center">
               <h2 _ngcontent-kki-c75="" style="color: white; margin: 10px 0px 40px 0px;">{{ modalData.title }}</h2>
               <div class="mt-2">
-                  <form [formGroup]="formGroup">
-                    <app-forgot-password *ngIf="modalData.template == 1" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
-                    <app-user-modal *ngIf="modalData.template == 2"></app-user-modal>
-                    <app-did-you-knew *ngIf="modalData.template == 3" [formGroup]="formGroup" [data]="modalData"></app-did-you-knew>
+                {{modalData.template}}
+                  <form [formGroup]="formGroup" [ngSwitch]="modalData.template">
+                    <app-forgot-password *ngSwitchCase="'forgotPassword'" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
+                    <app-user-modal *ngSwitchCase="'viewUser'" [formGroup]="formGroup" [data]="modalData"></app-user-modal>
+                    <app-did-you-knew *ngSwitchCase="'createDyk'" [formGroup]="formGroup" [data]="modalData"></app-did-you-knew>
+                    <!-- Juste une proposition || en mode template == rien ? error-data-component et on affiche une page d'erreur -->
+                    <!-- <error-data-component *ngSwitchDefault></error-data-component> -->
                   </form>
               </div>
             </div>

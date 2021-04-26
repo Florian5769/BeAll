@@ -4,7 +4,7 @@
  * Created Date: Mo Apr yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Sun Apr 25 2021                                              *
+ * Last Modified: Mon Apr 26 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2021 BeAll                                                    *
@@ -45,6 +45,7 @@ import { SlideOversComponent } from './components/slide-overs/slide-overs.compon
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { DidYouKnewComponent } from './components/modal/components/did-you-knew/did-you-knew.component';
+import { ViewDykComponent } from './components/slide-overs/templates/view-dyk/view-dyk.component';
 import { ElectronService } from 'src/providers/electron.service';
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ElectronService } from 'src/providers/electron.service';
     SlideOversComponent,
     TransactionsComponent,
     ArticlesComponent,
-    DidYouKnewComponent
+    DidYouKnewComponent,
+    ViewDykComponent
   ],
   imports: [
     BrowserModule,

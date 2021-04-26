@@ -64,10 +64,47 @@ class DidYouKnewService extends __BaseService {
   }
 
   /**
+   * @param id ID to update
+   * @returns success if updated code(404) if not
+   */
+   updateDidYouKnewResponse(
+   params:DidYouKnewService.UpdateDidYouKnew
+  ): __Observable<__StrictHttpResponse<DidYouKnewModel>> {
+    let __params = this.newParams();
+    let __headers = new HttpHeaders();
+    let __body: any = null;
+    __body = { id: params.id };
+    let req = new HttpRequest<any>(
+      "POST",
+      this.rootUrl + `/didYouKnew/update/${encodeURIComponent(params.id)}`,
+      __body,
+      {
+        headers: __headers,
+        params: __params,
+        responseType: "json",
+      }
+    );
+
+    return this.http.request<any>(req).pipe(
+      __filter((_r) => _r instanceof HttpResponse),
+      __map((_r) => {
+        return _r as __StrictHttpResponse<DidYouKnewModel>;
+      })
+    );
+  }
+
+
+  updateDidYouKnew(params:DidYouKnewService.UpdateDidYouKnew) {
+    return this.updateDidYouKnewResponse(params).pipe(
+      __map((_r) => _r.body as DidYouKnewModel)
+    );
+  }
+
+  /**
    * @param id ID to delete
    * @returns 1 if deleted 0 if not
    */
-  deleteDidYouknewResponse(
+   deleteDidYouknewresponse(
     id: string
   ): __Observable<__StrictHttpResponse<DidYouKnewModel>> {
     let __params = this.newParams();
@@ -96,7 +133,7 @@ class DidYouKnewService extends __BaseService {
    * @param id article's Id to delete
    */
   deleteDidYouKnew(id: string) {
-    return this.deleteDidYouknewResponse(id).pipe(
+    return this.deleteDidYouknewresponse(id).pipe(
       __map((_r) => _r.body as DidYouKnewModel)
     );
   }
@@ -140,7 +177,6 @@ class DidYouKnewService extends __BaseService {
    * @returns One article depends on IdArticle given in Arg
    */
   getDidYouKnew(id: string): __Observable<DidYouKnewModel> {
-    console.log(this.getDidYouKnewResponse(id))
     return this.getDidYouKnewResponse(id).pipe(
       __map((_r) => _r.body as DidYouKnewModel)
     );
@@ -194,6 +230,20 @@ class DidYouKnewService extends __BaseService {
       __map((_r) => _r.body as Array<DidYouKnewsModel>)
     );
   }
+
+
+}
+
+module DidYouKnewService{
+// Replace to models/didYouKnew
+export interface UpdateDidYouKnew {
+
+  /**
+   * dyk id to update
+   */
+  id: string;
+}
+
 }
 
 export { DidYouKnewService };

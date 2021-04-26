@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { DidYouKnewService } from 'src/app/api/providers/didYouKnew.service';
 
 @Component({
   selector: 'app-view-dyk',
@@ -9,7 +10,9 @@ export class ViewDykComponent implements OnInit {
   @Input() data: any;
   public action: Number;
 
-  constructor() {
+  constructor(
+    private Dyk: DidYouKnewService
+  ) {
     this.action = 0;
   }
   
@@ -18,10 +21,19 @@ export class ViewDykComponent implements OnInit {
   }
 
   modifyDyk = () => {
-    this.action = 1;
+    this.action = 1
   }
-
-  saveDyk = () => {
-    this.action = 0;
+  
+  saveDyk = (id: string) => {
+    let updateDyk: DidYouKnewService.UpdateDidYouKnew  = {
+      id: id
+    };
+    console.log(id);
+    this.Dyk.updateDidYouKnew(updateDyk)
+    .toPromise()
+    .then((res) => {
+      console.log(res);
+      this.action = 0;
+    })
   }
 }

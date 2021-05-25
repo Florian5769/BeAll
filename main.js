@@ -1,3 +1,21 @@
+/*
+ * File: main.js                                                               *
+ * Project: erp                                                                *
+ * Created Date: Tu May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Tue May 25 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 const { app, BrowserWindow} = require('electron')
 const url = require("url");
 const indexPath = require("path");

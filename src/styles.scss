@@ -1,6 +1,7 @@
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 @import './global.scss';
 // Plus imports for other components in your app.
@@ -8,21 +9,21 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat-core();
+@include mat.core();
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$ERP-primary: mat-palette($mat-indigo);
-$ERP-accent: mat-palette($mat-pink, A200, A100, A400);
+$ERP-primary: mat.define-palette(mat.$indigo-palette);
+$ERP-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
-$ERP-warn: mat-palette($mat-red);
+$ERP-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$ERP-theme: mat-light-theme((
+$ERP-theme: mat.define-light-theme((
   color: (
     primary: $ERP-primary,
     accent: $ERP-accent,
@@ -33,7 +34,7 @@ $ERP-theme: mat-light-theme((
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include angular-material-theme($ERP-theme);
+@include mat.all-component-themes($ERP-theme);
 
 /* You can add global styles to this file, and also import other style files */
 

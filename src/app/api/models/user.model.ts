@@ -1,3 +1,21 @@
+/*
+ * File: user.model.ts                                                         *
+ * Project: erp                                                                *
+ * Created Date: Tu May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Wed May 26 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                   *
+ * ----------	---	---------------------------------------------------------  *
+ */
+
+
+
 export interface UserModel {
     id?: number;
     email?: string;
@@ -13,7 +31,7 @@ export interface UserModel {
     address?: string;
     gender?: 'Male' | 'Female';
     birthyear?: number;
-    image?: string;
+    userimage?: string;
     subscribe?:boolean;
     plan?:number;
 }

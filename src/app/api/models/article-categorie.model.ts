@@ -1,7 +1,7 @@
 /*
- * File: webpack.config.js                                                     *
+ * File: article-categorie.model.ts                                            *
  * Project: erp                                                                *
- * Created Date: Tu May yyyy                                                   *
+ * Created Date: We May yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
  * Last Modified: Wed May 26 2021                                              *
@@ -16,33 +16,9 @@
 
 
 
-const path = require('path');
-
-module.exports = {
-    entry: './src/main.ts',
-    target: 'web',
-    devtool: 'inline-source-map',
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                exclude: /node_modules/
-            }
-        ]
-    },
-    node: {
-        fs: false,
-        path: false
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-        fallback: {
-            path: false,
-            fs: false,
-        }
-    },
-    output: {
-        filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist')
-    },
-};
+export interface ArticleCategorieModel {
+    _id?: number;
+    categorie: String;
+    value: String;
+    logo: String;
+}

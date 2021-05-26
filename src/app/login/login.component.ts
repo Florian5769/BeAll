@@ -4,7 +4,7 @@
  * Created Date: Su Apr yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Sun Apr 25 2021                                              *
+ * Last Modified: Wed May 26 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2021 BeAll                                                    *
@@ -27,7 +27,7 @@ import { CheckCredentialModel } from '../api/models/check-creadential.model';
 import { LoginResponseModel } from '../api/models/login-response.model';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ModalComponent } from '../components/modal/modal.component';
-import { ElectronService } from 'src/providers/electron.service';
+// import { ElectronService } from 'src/providers/electron.service';
 
 @Component({
   selector: 'app-login',
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
     private cookieServ: CookieService,
     private authService: AuthService,
     public matDialog: MatDialog,
-    public ES: ElectronService
+    // public ES: ElectronService
   ) {
     this.formInput = this.formBuilder.group({
       username: ['', Validators.compose([Validators.required])],
@@ -62,8 +62,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.cd.detectChanges();
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().setResizable(false);
+    // const { remote } = window.require('electron');
+    // remote.getCurrentWindow().setResizable(false);
   }
 
   login(): void {
@@ -85,7 +85,7 @@ export class LoginComponent implements OnInit {
             this.snbar.openSnackBar(this.errMessage, 'OK')
             return
           }
-          console.log(this.ES.isElectron());
+          // console.log(this.ES.isElectron());
           //we set the cookie
           this.cookieServ.set('tokens', resp.token);
 
@@ -95,9 +95,9 @@ export class LoginComponent implements OnInit {
 
 
           //maximize the window
-          const { remote } = window.require('electron');
-          remote.getCurrentWindow().maximize();
-          remote.getCurrentWindow().setResizable(true);
+          // const { remote } = window.require('electron');
+          // remote.getCurrentWindow().maximize();
+          // remote.getCurrentWindow().setResizable(true);
 
           return;
         },

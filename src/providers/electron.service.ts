@@ -1,36 +1,54 @@
-import { Injectable } from '@angular/core';
+/*
+ * File: electron.service.ts                                                   *
+ * Project: erp                                                                *
+ * Created Date: Tu May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Wed May 26 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
 
-// If you import a module but never use any of the imported values other than as TypeScript types,
-// the resulting javascript file will look as if you never imported the module at all.
-import { ipcRenderer, webFrame, remote, BrowserWindow } from 'electron';
-import * as childProcess from 'child_process';
-import * as fs from 'fs';
 
-@Injectable()
-export class ElectronService {
 
-  ipcRenderer: typeof ipcRenderer;
-  webFrame: typeof webFrame;
-  remote: typeof remote;
-  childProcess: typeof childProcess;
-  window: BrowserWindow;
-  fs: typeof fs;
+// import { Injectable } from '@angular/core';
 
-  constructor() {
-    // Conditional imports
-    if (this.isElectron()) {
-      this.ipcRenderer = window.require('electron').ipcRenderer;
-      this.webFrame = window.require('electron').webFrame;
-      this.remote = window.require('electron').remote;
-      this.window = window.require('electron').remote.getCurrentWindow();
+// // If you import a module but never use any of the imported values other than as TypeScript types,
+// // the resulting javascript file will look as if you never imported the module at all.
+// // import { ipcRenderer, webFrame, remote, BrowserWindow } from 'electron';
+// import * as childProcess from 'child_process';
+// import * as fs from 'fs';
 
-      this.childProcess = window.require('child_process');
-      this.fs = window.require('fs');
-    }
-  }
+// @Injectable()
+// export class ElectronService {
 
-  isElectron = () => {
-    return window && window.process && window.process.type;
-  }
+//   ipcRenderer: typeof ipcRenderer;
+//   webFrame: typeof webFrame;
+//   remote: typeof remote;
+//   childProcess: typeof childProcess;
+//   window: BrowserWindow;
+//   fs: typeof fs;
 
-}
+//   constructor() {
+//     // Conditional imports
+//     if (this.isElectron()) {
+//       this.ipcRenderer = window.require('electron').ipcRenderer;
+//       this.webFrame = window.require('electron').webFrame;
+//       this.remote = window.require('electron').remote;
+//       this.window = window.require('electron').remote.getCurrentWindow();
+
+//       this.childProcess = window.require('child_process');
+//       this.fs = window.require('fs');
+//     }
+//   }
+
+//   isElectron = () => {
+//     return window && window.process && window.process.type;
+//   }
+
+// }

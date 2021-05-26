@@ -4,7 +4,7 @@
  * Created Date: Mo Nov yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Tue May 25 2021                                              *
+ * Last Modified: Wed May 26 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2020 - 2021 BeAll                                             *
@@ -18,3 +18,4 @@
 
 export { Auth } from './models/auth';
 export { UserModel } from './models/user.model';
+export { ArticleCategorieModel } from './models/article-categorie.model';

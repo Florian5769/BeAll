@@ -4,7 +4,7 @@
  * Created Date: Mo Apr yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Mon Apr 19 2021                                              *
+ * Last Modified: Wed May 26 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2021 BeAll                                                    *
@@ -26,6 +26,8 @@ import { SlideOversComponent } from '../components/slide-overs/slide-overs.compo
 import { SnackBarService } from '../components/snackbar/snackbar';
 
 import { DidYouKnewComponent } from "../components/modal/components/did-you-knew/did-you-knew.component";
+import { ArticleCategorieModel } from "../api/models";
+import { ArticleService } from "../api/providers";
 
 @Component({
   selector: "app-dashboard",
@@ -35,16 +37,19 @@ import { DidYouKnewComponent } from "../components/modal/components/did-you-knew
 
 export class DashboardComponent implements OnInit {
   datas: DidYouKnewsModel[] = [];
+  categories: ArticleCategorieModel[] = [];
 
   constructor(
     public matDialog: MatDialog,
     private Dyk: DidYouKnewService,
-    private snbar: SnackBarService) {}
+    private Article: ArticleService,
+    private snbar: SnackBarService) { }
 
   public showModal: boolean;
 
   ngOnInit(): void {
     this.getDidYouKnews();
+    this.getCategoriesArticle();
   }
 
   getDidYouKnew = (id: string) => {
@@ -91,6 +96,14 @@ export class DashboardComponent implements OnInit {
         result.length > 0 ? (this.datas = result) : false;
       });
   };
+
+  getCategoriesArticle = () => {
+    this.Article.getCategories()
+      .toPromise()
+      .then((result: ArticleCategorieModel[]) => {
+        result.length > 0 ? this.categories = result : false
+      })
+  }
 
   openModal = () => {
     const dialogConfig = new MatDialogConfig();

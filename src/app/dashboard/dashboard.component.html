@@ -242,4 +242,50 @@ Copyright (c) 2021 BeAll
       </div>
     </div>
   </div>
+
+
+
+  <div style="max-width: 400px;width: 400px;height: 400px; max-height: 400px;"
+    class="mt-6 p-3 bg-white overflow-hidden shadow rounded-lg overflow-y-auto">
+    <div class="flex items-center justify-between">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Categories
+      </h3>
+      <button
+        class="flex flex-center custom-button w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+        (click)="openModal()">
+        + Ajouter
+      </button>
+    </div>
+
+    <div class="flow-root mt-6">
+      <ul class="-my-5 divide-y divide-gray-200">
+        <li *ngFor="let data of categories" class="py-4">
+          <div class="flex items-center space-x-4">
+            <div class="flex-shrink-0">
+              <img class="h-8 w-8 rounded-full" src="{{data.logo}}" alt="">
+            </div>
+            <div class="flex-1 min-w-0">
+              <p class="text-sm font-medium text-gray-900 truncate">
+                {{data.categorie}}
+              </p>
+            </div>
+            <div>
+              <a href="#"
+                class="inline-flex items-center shadow-sm px-2.5 py-0.5 border border-gray-300 text-sm leading-5 font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50">
+                View
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="mt-6 sticky bottom-0">
+      <a href="#"
+        class="w-full flex justify-center items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+        View all
+      </a>
+    </div>
+  </div>
+
 </div>

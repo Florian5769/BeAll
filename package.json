@@ -1,7 +1,6 @@
 {
   "name": "erp",
   "version": "0.0.0",
-  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -24,11 +23,8 @@
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
     "@auth0/angular-jwt": "^5.0.2",
-    "axios": "^0.21.1",
-    "electron-reloader": "^1.0.1",
     "ng-swagger-gen": "^2.2.0",
     "ngx-cookie-service": "^12.0.0",
-    "ngx-electron": "^2.2.0",
     "rxjs": "^6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
@@ -43,7 +39,6 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^15.6.1",
     "codelyzer": "^6.0.0",
-    "electron": "^10.4.1",
     "jasmine-core": "~3.7.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.3.2",
@@ -60,10 +55,5 @@
     "files",
     "assets",
     "accounts"
-  ],
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
-  }
+  ]
 }

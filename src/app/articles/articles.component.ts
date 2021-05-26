@@ -1,3 +1,21 @@
+/*
+ * File: articles.component.ts                                                 *
+ * Project: erp                                                                *
+ * Created Date: Tu May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Wed May 26 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +24,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
+  public isLoading = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

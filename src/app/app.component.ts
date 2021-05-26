@@ -1,5 +1,23 @@
+/*
+ * File: app.component.ts                                                      *
+ * Project: erp                                                                *
+ * Created Date: Tu May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Wed May 26 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-import { ElectronService } from '../providers/electron.service';
+// import { ElectronService } from '../providers/electron.service';
 import {NavigationStart, Router} from '@angular/router';
 
 @Component({
@@ -23,44 +41,44 @@ export class AppComponent implements OnInit {
       })
   }
 
-  closeApp() {
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().close()
-  }
+  // closeApp() {
+  //   const { remote } = window.require('electron');
+  //   remote.getCurrentWindow().close()
+  // }
 
-  maximizeApp() {
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().maximize()
-    this.setMaximize(true)
-  }
-  unMaximizeApp() {
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().unmaximize()
-    this.setMaximize(false)
-  }
-  reduceApp() {
-    const { remote } = window.require('electron');
-    remote.getCurrentWindow().minimize()
-  }
+  // maximizeApp() {
+  //   const { remote } = window.require('electron');
+  //   remote.getCurrentWindow().maximize()
+  //   this.setMaximize(true)
+  // }
+  // unMaximizeApp() {
+  //   const { remote } = window.require('electron');
+  //   remote.getCurrentWindow().unmaximize()
+  //   this.setMaximize(false)
+  // }
+  // reduceApp() {
+  //   const { remote } = window.require('electron');
+  //   remote.getCurrentWindow().minimize()
+  // }
 
-  setMaximize(maximize: boolean){
-    this.isMaximized = maximize;
-    this.cd.detectChanges();
-  }
+  // setMaximize(maximize: boolean){
+  //   this.isMaximized = maximize;
+  //   this.cd.detectChanges();
+  // }
 
-  onMove(){
-    const { remote } = window.require('electron');
-   const event = remote.getCurrentWindow();
+  // onMove(){
+  //   const { remote } = window.require('electron');
+  //  const event = remote.getCurrentWindow();
 
-   event.on('move', () =>{
-    if(remote.getCurrentWindow().isMaximized() === true) {this.setMaximize(true);}
-    else this.setMaximize(false);
-  })
+  //  event.on('move', () =>{
+  //   if(remote.getCurrentWindow().isMaximized() === true) {this.setMaximize(true);}
+  //   else this.setMaximize(false);
+  // })
 
-  }
+  // }
 
   ngOnInit() {
-      this.onMove();
+      // this.onMove();
   }
 
 }

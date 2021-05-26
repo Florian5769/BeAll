@@ -4,7 +4,7 @@
  * Created Date: Mo Nov yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Sun Apr 25 2021                                              *
+ * Last Modified: Wed May 26 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2020 - 2021 BeAll                                             *
@@ -17,6 +17,7 @@
 
 
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { UserModel } from 'src/app/api/models';
 import { AuthService } from 'src/providers/auth/auth.service';
 
 @Component({
@@ -30,7 +31,7 @@ export class TopbarComponent implements OnInit {
   @ViewChild('menu') menu: ElementRef;
 
   public isOpen: boolean;
-  public user: string;
+  public user: UserModel;
   public userImage: string;
 
   constructor(

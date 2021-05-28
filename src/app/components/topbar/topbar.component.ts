@@ -4,7 +4,7 @@
  * Created Date: Mo Nov yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Wed May 26 2021                                              *
+ * Last Modified: Thu May 27 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2020 - 2021 BeAll                                             *
@@ -33,6 +33,7 @@ export class TopbarComponent implements OnInit {
   public isOpen: boolean;
   public user: UserModel;
   public userImage: string;
+  themeColor = 'light-theme';
 
   constructor(
     private renderer: Renderer2,
@@ -65,6 +66,23 @@ export class TopbarComponent implements OnInit {
 
   logout() {
     this.authService.logout()
+  }
+
+
+  themeSwitcher(){
+
+    const body = document.getElementsByTagName('body')[0];
+    body.classList.remove(this.themeColor);
+  
+    // switch theme
+    (this.themeColor == 'light-theme')?this.themeColor = 'dark-theme':this.themeColor = 'light-theme';
+  
+    body.classList.add(this.themeColor);
+  
+    //save it to local storage
+  
+    localStorage.setItem('pxTheme',this.themeColor);
+  
   }
 
 }

@@ -1,3 +1,12 @@
+/*
+ * Filename: d:\BE-ALL-SOFT-FRONT\src\styles.scss
+ * Path: d:\BE-ALL-SOFT-FRONT
+ * Created Date: Wednesday, May 26th 2021, 7:04:14 pm
+ * Author: Franck Ehui
+ * 
+ * Copyright (c) 2021 BeAll
+ */
+
 
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
@@ -58,6 +67,10 @@ body {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                     supported by Chrome, Edge, Opera and Firefox */
+}
+
+body.dark-theme .app-content{
+  background-color: #373a43;
 }
 
 .bg-gray-500 {

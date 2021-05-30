@@ -1,6 +1,183 @@
-<div class="filterCtn">
-  Filtre
+<!-- <div class="filterCtn">Filtre</div>  -->
+<div class="top-div">
+  <h4>Articles</h4>
+  <button 
+    (click)="openFilters()"
+    class="flex flex-center custom-button w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
+    <i style="margin-right: 5px;" class="fas fa-filter"></i>
+    <span>Filtrer</span>
+  </button>
 </div>
-<div class="articleTable">
-  Table article
+
+<div *ngIf="showFilter" class="filters">
+  <input type="text" placeholder="Lastname">
+  <input type="text" placeholder="Firstname">
+  <input type="text" placeholder="Email">
 </div>
+
+<div class="mt-6 flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+      <div
+        class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+      >
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead>
+            <tr>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Auteur
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Titre
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Catégorie
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Vues
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Likes
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Date
+              </th>
+              <th
+                scope="col"
+                class="
+                  px-6
+                  py-3
+                  bg-gray-50
+                  text-left text-xs
+                  font-medium
+                  text-gray-500
+                  uppercase
+                  tracking-wider
+                "
+              >
+                Actions
+              </th>
+            </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+            <tr *ngFor="let article of articles">
+              <td
+                class="px-6 py-4 whitespace-nowrap flex items-center space-x-2"
+              >
+                <img
+                  class="flex-shrink-0 h-10 w-10 rounded-full object-cover"
+                  src="{{ article.userimage }}"
+                  alt=""
+                />
+                <div class="ml-4">
+                  <div class="text-sm font-medium text-gray-900">
+                    {{ article.username }}
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ article.article.title }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ article.article.category }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ article.article.views }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ article.article.likes }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                {{ article.article.date | date: "dd/MM/yyyy" }}
+              </td>
+              <td class="px-6 py-4 whitespace-nowrap">
+                <div style="display: flex; justify-content: space-evenly">
+                  <a href="" routerLink="/article/{{article.article._id}}">view</a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button type="button" (click)="approvedArticle(true)">Valider</button>
+<button type="button" (click)="approvedArticle(false)">Refuser</button>
+
+<button type="bubtton" (click)="getArticle('608596674ddceaae9c8153c6')">
+  Heho
+</button>

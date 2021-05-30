@@ -1,5 +1,5 @@
 export interface DidYouKnewsModel {
-  dyks: Object;
-  userimage: String;
-  username: String;
+  dyks: object;
+  userimage: string;
+  username: string;
 }

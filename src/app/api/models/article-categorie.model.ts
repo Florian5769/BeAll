@@ -18,7 +18,7 @@
 
 export interface ArticleCategorieModel {
     _id?: number;
-    categorie: String;
-    value: String;
-    logo: String;
+    categorie: string;
+    value: string;
+    logo: string;
 }

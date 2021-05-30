@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
     },
     {
       name: 'Articles',
-      rout: 'articles',
+      rout: 'article',
       svg: '0 0 24 24',
       path: 'm7.323 10.5h-2.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.5c.414 0 .75.336.75.75s-.336.75-.75.75z',
       path2: 'm19.323 10.5h-7.5c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h7.5c.414 0 .75.336.75.75s-.336.75-.75.75z',

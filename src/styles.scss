@@ -1,16 +1,5 @@
-/*
- * Filename: d:\BE-ALL-SOFT-FRONT\src\styles.scss
- * Path: d:\BE-ALL-SOFT-FRONT
- * Created Date: Wednesday, May 26th 2021, 7:04:14 pm
- * Author: Franck Ehui
- * 
- * Copyright (c) 2021 BeAll
- */
-
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 @import './global.scss';
 // Plus imports for other components in your app.
@@ -18,44 +7,52 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core();
+@include mat-core();
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
-$background-light-color:#edeef5;
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$ERP-primary: mat-palette($mat-indigo);
+$ERP-accent: mat-palette($mat-pink, A200, A100, A400);
 
-// Define the light theme
-$light-app-primary: mat-palette($mat-cyan, 500);
-$light-app-accent:  mat-palette($mat-pink, A200, A100, A400);
-$light-app-theme:   mat-light-theme($light-app-primary, $light-app-accent);
+// The warn palette is optional (defaults to red).
+$ERP-warn: mat-palette($mat-red);
 
-$background: map-get($light-app-theme, background);
-$background: map_merge($background, (background: $background-light-color));
-$light-app-theme: map_merge($light-app-theme, (background: $background));
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$ERP-theme: mat-light-theme((
+  color: (
+    primary: $ERP-primary,
+    accent: $ERP-accent,
+    warn: $ERP-warn,
+  )
+));
 
-// Include the light theme styles.
-@include angular-material-theme($light-app-theme);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($ERP-theme);
 
-
-// Define an dark theme.
-$dark-primary: mat-palette($mat-light-blue,300);
-$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
-$dark-warn:    mat-palette($mat-deep-orange);
-$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
-
-$background-dark-color:#151419;
-
-$background: map-get($dark-theme, background);
-$background: map_merge($background, (background: $background-dark-color));
-$dark-theme: map_merge($dark-theme, (background: $background));
+/* You can add global styles to this file, and also import other style files */
 
 .dark-theme{
-  @include angular-material-theme($dark-theme);
+  // @include angular-material-theme($dark-theme);
+
+  color:white;
+  .card, tbody, th{
+    background-color: #262626;
+  }
   .app-content{
-    background-color: #373a43;
+    background-color: #1f1f1f;
   }
     .mat-drawer{
         background-color: #151419;
         border-right: none !important;
+    }
+
+    .nav-content{
+      background-color: #1a1a1a;
     }
   }
 
@@ -250,4 +247,18 @@ img{
 
 .text-indigo-600{
   color: $primary;
+}
+
+.login-form-input-text {
+  background-color: transparent !important;
+  font-size: 14px;
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  font-family: "Varela Round";
+  text-align: left;
+  outline: 0px;
+  padding: 10px;
+  border: 2px solid #383838;
+  box-sizing: border-box;
 }

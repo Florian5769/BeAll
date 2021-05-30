@@ -9,40 +9,49 @@ import { LoginComponent } from './login/login.component';
 import { UserComponent } from './user/user.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ArticlesComponent } from './articles/articles.component';
+import { ArticleComponent } from "./article/article.component";
 
 
-const routes: Routes = [{
-  path: '',
-  component: LoginComponent
-},
-{
-  path: '', component: SidebarComponent, canActivate: [AuthService], children: [
-    {
-      path: 'dashboard',
-      component: DashboardComponent
-    },
-    {
-      path: 'users',
-      component: UserComponent
-    },
-    {
-      path: 'events',
-      component: EventComponent
-    },
-    {
-      path: 'articles',
-      component: ArticlesComponent
-    },
-    {
-      path: 'transactions',
-      component: TransactionsComponent
-    },
-    {
-      path: 'settings',
-      component: SettingsComponent
-    }
-  ]
-},
+const routes: Routes = [
+  {
+    path: "",
+    component: LoginComponent,
+  },
+  {
+    path: "",
+    component: SidebarComponent,
+    canActivate: [AuthService],
+    children: [
+      {
+        path: "dashboard",
+        component: DashboardComponent,
+      },
+      {
+        path: "users",
+        component: UserComponent,
+      },
+      {
+        path: "events",
+        component: EventComponent,
+      },
+      {
+        path: "article",
+        component: ArticlesComponent,
+      },
+      {
+        path: "article/:_id",
+        component: ArticleComponent,
+      },
+      {
+        path: "transactions",
+        component: TransactionsComponent,
+      },
+      {
+        path: "settings",
+        component: SettingsComponent,
+      },
+    ],
+  },
 ];
 
 @NgModule({

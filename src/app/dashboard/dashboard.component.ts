@@ -38,6 +38,7 @@ import { ArticleService } from "../api/providers";
 export class DashboardComponent implements OnInit {
   datas: DidYouKnewsModel[] = [];
   categories: ArticleCategorieModel[] = [];
+  values = [];
 
   constructor(
     public matDialog: MatDialog,
@@ -50,6 +51,23 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getDidYouKnews();
     this.getCategoriesArticle();
+  }
+
+  addvalue = () => {
+    this.values.push({value: ""});
+  }
+
+  saveValues = () =>{
+    this.Article.postCategorie(this.values)
+      .toPromise()
+      .then((result) => {
+        console.log(result)
+      });
+    console.info(this.values);
+  }
+
+  removevalue(i){
+    this.values.splice(i,1);
   }
 
   getDidYouKnew = (id: string) => {
@@ -110,8 +128,8 @@ export class DashboardComponent implements OnInit {
     dialogConfig.id = "modal-component";
     dialogConfig.data = {
       name: "create-did-you-knew",
-      title: "Créer son 'Le saviez-vous ?'",
-      description: "Créer un le saviez-vous.",
+      title: "Créer 'Le saviez-vous ?'",
+      description: "Créer le saviez-vous.",
       actionButtonText: "Delete",
       confirmText: "Confirmer",
       productId: "test",

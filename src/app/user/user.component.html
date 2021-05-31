@@ -10,18 +10,71 @@ Copyright (c) 2021 BeAll
 <div>
   <div class="top-div">
     <h4>Utilisateurs</h4>
-    <button 
-      (click)="openFilters()"
+    <button (click)="openFilters()"
       class="flex flex-center custom-button w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm">
       <i style="margin-right: 5px;" class="fas fa-filter"></i>
       <span>Filtrer</span>
     </button>
   </div>
- 
-  <div *ngIf="showFilter" class="filters">
-    <input type="text" placeholder="Lastname">
-    <input type="text" placeholder="Firstname">
-    <input type="text" placeholder="Email">
+
+  <div *ngIf="showFilter" class="filters flex space-x-3">
+    <input class="w-full login-form-input-text ng-pristine ng-invalid ng-touched" type="text" placeholder="Nom" />
+    <input class="w-full login-form-input-text ng-pristine ng-invalid ng-touched" type="text" placeholder="Prénom" />
+    <input class="w-full login-form-input-text ng-pristine ng-invalid ng-touched" type="text" placeholder="Email" />
+    <div class="relative inline-block text-left">
+      <div>
+        <button type="button"
+          class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+          id="menu-button" aria-expanded="true" aria-haspopup="true">
+          Options
+          <!-- Heroicon name: solid/chevron-down -->
+          <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            aria-hidden="true">
+            <path fill-rule="evenodd"
+              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+              clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <!--
+        Dropdown menu, show/hide based on menu state.
+    
+        Entering: "transition ease-out duration-100"
+          From: "transform opacity-0 scale-95"
+          To: "transform opacity-100 scale-100"
+        Leaving: "transition ease-in duration-75"
+          From: "transform opacity-100 scale-100"
+          To: "transform opacity-0 scale-95"
+      -->
+      <div
+        class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
+        role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+        <div class="py-1" role="none">
+          <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-0">Edit</a>
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-1">Duplicate</a>
+        </div>
+        <div class="py-1" role="none">
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-2">Archive</a>
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-3">Move</a>
+        </div>
+        <div class="py-1" role="none">
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-4">Share</a>
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-5">Add
+            to favorites</a>
+        </div>
+        <div class="py-1" role="none">
+          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
+            id="menu-item-6">Delete</a>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -167,92 +220,100 @@ Copyright (c) 2021 BeAll
     <!-- more items -->
   </div>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div *ngIf="!isLoading" class="mt-6 flex flex-col">
-  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-    <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-      <div class="shadow overflow-hidden sm:rounded-lg">
-        <table class="min-w-full">
-          <thead>
-            <tr>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Name
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Age
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Gender
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Status
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Plan
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Role
-              </th>
-              <th scope="col" class="px-6 py-3 bg-gray-50">
-                <span class="sr-only">Voir</span>
-              </th>
-            </tr>
-          </thead>
+  <!-- This example requires Tailwind CSS v2.0+ -->
+  <div *ngIf="!isLoading" class="mt-6 flex flex-col">
+    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+      <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+        <div class="shadow overflow-hidden sm:rounded-lg">
+          <table class="min-w-full">
+            <thead>
+              <tr>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Name
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Age
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Gender
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Status
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Plan
+                </th>
+                <th scope="col"
+                  class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Role
+                </th>
+                <th scope="col" class="px-6 py-3 bg-gray-50">
+                  <span class="sr-only">Voir</span>
+                </th>
+              </tr>
+            </thead>
 
-          <tbody class="card">
+            <tbody class="card">
 
-            <tr *ngFor="let user of users">
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="flex items-center">
+              <tr *ngFor="let user of users">
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
 
-                  <div class="flex-shrink-0 h-10 w-10">
-                    <img class="h-10 w-10 rounded-full object-cover" [src]="user.profilImage" alt="">
-                  </div>
-                  <div class="ml-4">
-                    <div class="text-sm font-medium text-gray-900">
-                      {{user.firstname}} {{user.lastname}}
+                    <div class="flex-shrink-0 h-10 w-10">
+                      <img class="h-10 w-10 rounded-full object-cover" [src]="user.profilImage" alt="">
                     </div>
-                    <div class="text-sm text-gray-500">
-                      {{user.email}}
+                    <div class="ml-4">
+                      <div class="text-sm font-medium text-gray-900">
+                        {{user.firstname}} {{user.lastname}}
+                      </div>
+                      <div class="text-sm text-gray-500">
+                        {{user.email}}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                   31
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                Male
-              </td>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  Male
+                </td>
 
-              <td class="px-6 py-4 whitespace-nowrap">
-                <span [ngClass]="(user.subscribe)?'bg-green-100 text-green-800':'bg-red-100 text-red-800'" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ">
-                  <span *ngIf="user.subscribe">Active</span>
-                  <span *ngIf="!user.subscribe">Pending</span>
-                </span>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{user.plan}}
-              </td>
-              <td class="roles px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{user.roles}}
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                <button (click)="openSlideOverUser()" class="no-bg text-indigo-600 hover:text-indigo-900">Voir</button>
-              </td>
-            </tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <span [ngClass]="(user.subscribe)?'bg-green-100 text-green-800':'bg-red-100 text-red-800'"
+                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ">
+                    <span *ngIf="user.subscribe">Active</span>
+                    <span *ngIf="!user.subscribe">Pending</span>
+                  </span>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{user.plan}}
+                </td>
+                <td class="roles px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  {{user.roles}}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                  <button (click)="openSlideOverUser()"
+                    class="no-bg text-indigo-600 hover:text-indigo-900">Voir</button>
+                </td>
+              </tr>
 
-            <!-- More rows... -->
-          </tbody>
-        </table>
+              <!-- More rows... -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
-<div  class="loader" *ngIf="isLoading">
+  <div class="loader" *ngIf="isLoading">
 
-</div>
- 
+  </div>
+
 </div>

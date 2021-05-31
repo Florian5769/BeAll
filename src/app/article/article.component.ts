@@ -43,7 +43,7 @@ export class ArticleComponent implements OnInit {
       .toPromise()
       .then((result) => {
         this.article = result;
-        console.log(this.article)
+        console.log(result)
       });
   };
 

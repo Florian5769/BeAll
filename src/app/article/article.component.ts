@@ -1,3 +1,21 @@
+/*
+ * File: article.component.ts                                                  *
+ * Project: erp                                                                *
+ * Created Date: Su May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Mon May 31 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Article } from "../api/models/article.model";
@@ -10,7 +28,7 @@ import { ArticleService } from "../api/providers";
 })
 export class ArticleComponent implements OnInit {
   public isLoading = false;
-  private article: Article;
+  public article: Article;
 
   constructor(private route: ActivatedRoute, private Article: ArticleService) {}
 
@@ -25,6 +43,7 @@ export class ArticleComponent implements OnInit {
       .toPromise()
       .then((result) => {
         this.article = result;
+        console.log(this.article)
       });
   };
 

@@ -1,3 +1,12 @@
+<!--
+Filename: d:\BE-ALL-SOFT-FRONT\src\app\components\slide-overs\slide-overs.component.html
+Path: d:\BE-ALL-SOFT-FRONT
+Created Date: Wednesday, May 26th 2021, 7:04:14 pm
+Author: Franck Ehui
+
+Copyright (c) 2021 BeAll
+-->
+
 <div #container class="fixed inset-0 overflow-hidden">
     <div class="absolute inset-0 overflow-hidden">
       <div style="cursor: pointer;" class="opacity-0 ease-in-out duration-500 absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
@@ -5,7 +14,7 @@
       <section style="height: 90%; margin: auto;padding-top: 30px; right: 20px;" class="absolute inset-y-0 right-0 pl-10 max-w-full flex" aria-labelledby="slide-over-heading">
         <div #modal style="min-width: 600px;" class="opacity-0 transform transition ease-in-out duration-500 sm:duration-700 relative w-screen max-w-md" 
         [ngClass]="(!finishOpen)?'translate-x-full':'translate-x-0 opacity-100'">
-          <div style="overflow: hidden; border-radius: 15px;" class="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
+          <div style="overflow: hidden; border-radius: 15px;" class="h-full flex flex-col py-6 card shadow-xl overflow-y-scroll">
             <div class="px-4 sm:px-6" [ngSwitch]="slideOverData.template">
               <h2 id="slide-over-heading" class="text-center text-lg font-bold font-medium text-gray-900">
                 {{slideOverData.title | uppercase}}

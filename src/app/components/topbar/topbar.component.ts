@@ -4,7 +4,7 @@
  * Created Date: Mo Nov yyyy                                                   *
  * Author: Franck Ehui                                                         *
  * -----                                                                       *
- * Last Modified: Thu May 27 2021                                              *
+ * Last Modified: Sun May 30 2021                                              *
  * Modified By: Franck Ehui                                                    *
  * -----                                                                       *
  * Copyright (c) 2020 - 2021 BeAll                                             *
@@ -37,10 +37,12 @@ export class TopbarComponent implements OnInit {
   public user: UserModel;
   public userImage: string;
   themeColor = "light-theme";
+  darkMode: boolean;
 
   constructor(private renderer: Renderer2, private authService: AuthService) {
     this.isOpen = false;
     this.user = JSON.parse(localStorage.getItem("user"));
+    this.darkMode = false;
 
     this.renderer.listen("window", "click", (e: Event) => {
       /**
@@ -79,6 +81,8 @@ export class TopbarComponent implements OnInit {
       //set theme color to one from storage
       this.themeColor = localStorage.getItem("pxTheme");
 
+      if (this.themeColor == "dark-theme") this.darkMode = true;
+      else this.darkMode = false;
       //add that class to body
       const body = document.getElementsByTagName("body")[0];
       body.classList.add(this.themeColor);
@@ -91,8 +95,8 @@ export class TopbarComponent implements OnInit {
 
     // switch theme
     this.themeColor == "light-theme"
-      ? (this.themeColor = "dark-theme")
-      : (this.themeColor = "light-theme");
+      ? (this.themeColor = "dark-theme", this.darkMode = true)
+      : (this.themeColor = "light-theme", this.darkMode = false);
 
     body.classList.add(this.themeColor);
 

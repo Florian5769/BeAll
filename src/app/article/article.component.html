@@ -1,15 +1,39 @@
+<!--
+Filename: d:\BE-ALL-SOFT-FRONT\src\app\article\article.component.html
+Path: d:\BE-ALL-SOFT-FRONT
+Created Date: Sunday, May 30th 2021, 11:09:46 pm
+Author: Franck Ehui
 
-<div *ngIf="article" [innerHTML]="article.article.content">
+Copyright (c) 2021 BeAll
+-->
 
-</div>
 
-<div>
-  <button
-    class="inline-flex items-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-    type="button"
-    (click)="approvedArticle(true)"
-  >
-    Valider
-  </button>
-  <button type="button" (click)="approvedArticle(false)">Refuser</button>
+<div *ngIf="article">
+
+  <div class="top-div space-x-2" style="justify-content: flex-start;">
+    <i routerLink=".." class="fas fa-chevron-left cursor-pointer"></i>
+    <h4>{{article['article'].title}}</h4>
+  </div>
+  <div class="flex justify-between space-x-5">
+
+    <div style="width:calc(100% - 300px)" [innerHTML]="article['article'].content">
+
+    </div>
+
+    <div style="width:300px" class="space-y-3">
+      <div class="flex space-x-3 items-center">
+        <img class="h-16 w-16 rounded-full" [src]="article['user'].image" alt="" />
+        <span>{{article['user'].username}}</span>
+      </div>
+      <button
+        class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        type="button" (click)="approvedArticle(true)">
+        Valider
+      </button>
+      <button
+        class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        type="button" (click)="approvedArticle(false)">Refuser</button>
+    </div>
+
+  </div>
 </div>

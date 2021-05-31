@@ -1,3 +1,12 @@
+/*
+ * Filename: d:\BE-ALL-SOFT-FRONT\src\styles.scss
+ * Path: d:\BE-ALL-SOFT-FRONT
+ * Created Date: Sunday, May 30th 2021, 11:09:46 pm
+ * Author: Franck Ehui
+ * 
+ * Copyright (c) 2021 BeAll
+ */
+
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -41,18 +50,21 @@ $ERP-theme: mat-light-theme((
 
   color:white;
   .card, tbody, th{
-    background-color: #262626;
+    background-color: #21262c;
   }
   .app-content{
-    background-color: #1f1f1f;
+    background-color: #191b1f;
   }
     .mat-drawer{
-        background-color: #151419;
+        background-color: #17181e;
         border-right: none !important;
     }
 
     .nav-content{
-      background-color: #1a1a1a;
+      background-color: #15171b;
+    }
+    svg{
+      filter: invert(1);
     }
   }
 
@@ -78,6 +90,13 @@ body {
                     supported by Chrome, Edge, Opera and Firefox */
 }
 
+.app-content{
+  background-color: #f7f8fa;
+}
+
+.card{
+  background-color: white;
+}
 
 .bg-gray-500 {
   background-color: rgba(107,117,127,var(--tw-bg-opacity));

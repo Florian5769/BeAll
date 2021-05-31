@@ -1,3 +1,12 @@
+<!--
+Filename: d:\BE-ALL-SOFT-FRONT\src\app\articles\articles.component.html
+Path: d:\BE-ALL-SOFT-FRONT
+Created Date: Sunday, May 30th 2021, 11:09:46 pm
+Author: Franck Ehui
+
+Copyright (c) 2021 BeAll
+-->
+
 <!-- <div class="filterCtn">Filtre</div>  -->
 <div class="top-div">
   <h4>Articles</h4>
@@ -19,9 +28,9 @@
   <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
       <div
-        class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg"
+        class="shadow overflow-hidden sm:rounded-lg"
       >
-        <table class="min-w-full divide-y divide-gray-200">
+        <table class="card min-w-full">
           <thead>
             <tr>
               <th
@@ -131,7 +140,7 @@
               </th>
             </tr>
           </thead>
-          <tbody class="bg-white divide-y divide-gray-200">
+          <tbody class="">
             <tr *ngFor="let article of articles">
               <td
                 class="px-6 py-4 whitespace-nowrap flex items-center space-x-2"
@@ -164,7 +173,7 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div style="display: flex; justify-content: space-evenly">
-                  <a href="" routerLink="/article/{{article.article._id}}">view</a>
+                  <a href="" routerLink="/article/{{article.article._id}}">Voir</a>
                 </div>
               </td>
             </tr>
@@ -175,9 +184,5 @@
   </div>
 </div>
 
-<button type="button" (click)="approvedArticle(true)">Valider</button>
-<button type="button" (click)="approvedArticle(false)">Refuser</button>
-
-<button type="bubtton" (click)="getArticle('608596674ddceaae9c8153c6')">
-  Heho
-</button>
+<!-- <button type="button" (click)="approvedArticle(true)">Valider</button>
+<button type="button" (click)="approvedArticle(false)">Refuser</button> -->

@@ -1,5 +1,22 @@
+/*
+ * File: sidebar.component.ts                                                  *
+ * Project: erp                                                                *
+ * Created Date: Su May yyyy                                                   *
+ * Author: Franck Ehui                                                         *
+ * -----                                                                       *
+ * Last Modified: Mon May 31 2021                                              *
+ * Modified By: Franck Ehui                                                    *
+ * -----                                                                       *
+ * Copyright (c) 2021 BeAll                                                    *
+ * -----                                                                       *
+ * HISTORY:                                                                    *
+ * Date      	By	Comments                                                     *
+ * ----------	---	---------------------------------------------------------    *
+ */
+
+
+
 import { Component, OnInit } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
 import { AuthService } from '../../../providers/auth/auth.service';
 
 export interface sideList {
@@ -33,6 +50,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
 
   sideList: sideList[] = [
     {

@@ -90,6 +90,11 @@ body {
                     supported by Chrome, Edge, Opera and Firefox */
 }
 
+button:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
 .app-content{
   background-color: #f7f8fa;
 }

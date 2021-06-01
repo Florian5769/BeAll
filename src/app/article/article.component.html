@@ -16,24 +16,43 @@ Copyright (c) 2021 BeAll
   </div>
   <div class="flex justify-between space-x-5">
 
-    <div style="width:calc(100% - 300px)" [innerHTML]="article['article'].content">
-
-    </div>
-
-    <div style="width:300px;height: fit-content;" class="space-y-3 p-3 card rounded-lg">
-      <div class="flex space-x-3 items-center">
-        <img class="h-16 w-16 rounded-full" [src]="article['user'].image" alt="" />
-        <span>{{article['user'].username}}</span>
+    <div class="space-y-3" style="width:calc(100% - 400px)">
+      <img [src]="article['article'].image" class="rounded-lg" />
+      <div class="article-content" [innerHTML]="article['article'].content">
       </div>
-      <button
-        class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        type="button" (click)="approvedArticle(true)">
-        Valider
-      </button>
-      <button
-        class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
-        type="button" (click)="approvedArticle(false)">Refuser</button>
     </div>
 
+    <div [ngStyle]="{ 'border-top-color': article['user'].color }"
+      style="width:400px;height: fit-content;border-top-width: 60px" class="space-y-3 p-3 card rounded-lg">
+
+      <div style="margin-top: -45px;" class="flex space-x-3 items-center">
+        <img id="userArticleImage" class="object-cover h-16 w-16 rounded-full" [src]="article['user'].image" alt="" />
+      </div>
+
+      <p class="my-3 block">{{article['user'].username}}</p>
+      <p class="my-3 opacity-40">{{article['user'].userBio}}</p>
+
+      <p class="m-0 opacity-40">Rejoint le</p>
+      <p class="m-0">{{article['user'].userJoined}}</p>
+
+      <div class="space-y-3">
+        <textarea class="w-full login-form-input-text ng-pristine ng-invalid ng-touched custom-scroll-bar"
+          [(ngModel)]="comments" appTextareaAutoresize autocomplete="off" placeholder="Ajouter un commentaire..."
+          (input)="getComments($event)"></textarea>
+      </div>
+
+      <div class="flex space-x-3">
+        <button
+          class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          type="button" (click)="approvedArticle(true)">
+          Valider
+        </button>
+        <button [disabled]="disabled"
+          class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          (click)="approvedArticle(false)" type="button">
+          Refuser</button>
+      </div>
+
+    </div>
   </div>
 </div>

@@ -18,5 +18,6 @@ export interface Article {
   likes: number;
   grantNotification: boolean;
   userBio: string,
-  userJoined: Date
+  userJoined: Date,
+  adminComments: string;
 }

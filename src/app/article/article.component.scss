@@ -1,0 +1,87 @@
+.section_title h5::after, .section_title p::after {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--text-color);
+    content: '';
+}
+
+.article-content p{
+    font-size: 17px;
+    line-height: 32px;
+    letter-spacing: -0.003em;
+    font-weight: 400;
+    margin-top: 2em;
+}
+
+.article-content h1, .article-content h2, .article-content h3 {
+    font-size: 24px;
+    line-height: 36px;
+    letter-spacing: -0.003em;
+    font-weight: 600;
+    letter-spacing: 0;
+    margin-top: 1.25em;
+    margin-bottom: -0.28em;
+    text-transform: lowercase;
+    color: var(--text-color);
+}
+
+.article-content h1::first-letter, .article-content h2::first-letter, .article-content h3::first-letter{
+    text-transform: uppercase;
+}
+
+.article-content ul{
+    margin-top: 1.25em;
+}
+
+.article-content ul li{
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    font-size: 17px;
+    list-style-type: disc !important;
+    margin-left: 30px;
+    padding-left: 0px;
+}
+
+.article-content p:first-child{
+    margin: 0 !important;
+}
+
+.article-content a {
+    color: var(--text);
+    text-decoration: underline !important;
+}
+
+.post-author_contenu{
+    text-transform: capitalize;
+}
+
+.news-comment .ck-content{
+    background:  var(--chat-input-color) !important;
+    min-height: 130px;
+    max-height: 200px;
+}
+
+.ck-content,.ck-editor{
+    background: transparent ;
+    border-radius: 9px !important;
+    border:0px !important ;
+    width: 100%;
+}
+
+.ck-editor__main{
+    border:0px !important ;
+}
+
+
+blockquote{
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    border-left: 5px solid #ccc;
+}

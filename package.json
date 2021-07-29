@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
     "@auth0/angular-jwt": "^5.0.2",
+    "colorthief": "^2.3.2",
     "ng-swagger-gen": "^2.2.0",
     "ngx-cookie-service": "^12.0.0",
     "rxjs": "^6.6.3",

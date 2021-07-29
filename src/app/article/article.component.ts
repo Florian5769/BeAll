@@ -29,8 +29,15 @@ import { ArticleService } from "../api/providers";
 export class ArticleComponent implements OnInit {
   public isLoading = false;
   public article: Article;
+  public disabled: boolean;
+  public comments = "";
 
-  constructor(private route: ActivatedRoute, private Article: ArticleService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private Article: ArticleService
+  ) {
+    this.disabled = true;
+  }
 
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get("_id");
@@ -43,15 +50,21 @@ export class ArticleComponent implements OnInit {
       .toPromise()
       .then((result) => {
         this.article = result;
-        console.log(this.article)
+
+        console.log(result)
       });
   };
 
+  getComments = (e: Event) => {
+    this.comments.length > 90
+      ? this.disabled = false
+      : this.disabled = true
+  }
+
   approvedArticle = (arg: boolean) => {
     if (arg) {
-      console.log("pre: ", this.article);
       this.article.status = 1;
-      console.log("post: ", this.article);
+      this.article.adminComments = this.comments;
       this.Article.validateArticle(this.article)
         .toPromise()
         .then((result) => {

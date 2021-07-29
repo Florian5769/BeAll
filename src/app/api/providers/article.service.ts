@@ -95,7 +95,7 @@ class ArticleService extends __BaseService {
     );
   }
 
-  getArticleById(id): __Observable<Article> {
+  getArticleById(id: string): __Observable<Article> {
     return this.getArticleByIdResponse(id).pipe(
       __map((_r) => _r.body as Article)
     );

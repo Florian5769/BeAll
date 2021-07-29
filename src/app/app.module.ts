@@ -47,6 +47,7 @@ import { ArticlesComponent } from './articles/articles.component';
 import { DidYouKnewComponent } from './components/modal/components/did-you-knew/did-you-knew.component';
 import { ViewDykComponent } from './components/slide-overs/templates/view-dyk/view-dyk.component';
 import { ArticleComponent } from './article/article.component';
+import { TextareaAutoresizeDirective } from './directives/textarea-autoresize.directive';
 // import { ElectronService } from 'src/providers/electron.service';
 
 @NgModule({
@@ -67,7 +68,8 @@ import { ArticleComponent } from './article/article.component';
     ArticlesComponent,
     DidYouKnewComponent,
     ViewDykComponent,
-    ArticleComponent
+    ArticleComponent,
+    TextareaAutoresizeDirective
   ],
   imports: [
     BrowserModule,

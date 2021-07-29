@@ -17,4 +17,7 @@ export interface Article {
   views: number;
   likes: number;
   grantNotification: boolean;
+  userBio: string,
+  userJoined: Date,
+  adminComments: string;
 }

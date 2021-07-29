@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     // public ES: ElectronService
   ) {
     this.formInput = this.formBuilder.group({
-      username: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required])],
       password: ['', Validators.compose([Validators.required])]
     });
   }
@@ -71,7 +71,7 @@ export class LoginComponent implements OnInit {
     if (this.formInput.valid) {
       this.isLoading = true;
       const credential: CheckCredentialModel = {
-        username: this.formInput.value.username.toLowerCase(),
+        email: this.formInput.value.email.toLowerCase(),
         password: this.formInput.value.password
       }
 

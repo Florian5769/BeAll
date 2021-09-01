@@ -14,8 +14,7 @@
  * ----------	---	---------------------------------------------------------  *
  */
 
-
-
 // exports all services
-export { UserService } from './providers/user.service';
-export { ArticleService } from './providers/article.service';
+export { UserService } from "./providers/user.service";
+export { ArticleService } from "./providers/article.service";
+export { AlphaService } from "./providers/alpha.service";

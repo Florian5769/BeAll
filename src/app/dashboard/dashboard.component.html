@@ -10,33 +10,63 @@ Copyright (c) 2021 BeAll
 <div>
   <div class="top-div">
     <h4>Dashboard</h4>
-    <button
-      class="
-        flex flex-center
-        custom-button
-        w-full
-        inline-flex
-        justify-center
-        rounded-md
-        border border-transparent
-        shadow-sm
-        px-4
-        py-2
-        bg-blue-600
-        text-base
-        font-medium
-        text-white
-        hover:bg-blue-700
-        focus:outline-none
-        focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
-        sm:ml-3
-        sm:w-auto
-        sm:text-sm
-      "
-      (click)="openModal()"
-    >
-      Crée le saviez-vous
-    </button>
+
+    <div class="flex space-x-3">
+      <button
+        class="
+          flex flex-center
+          custom-button
+          w-full
+          inline-flex
+          justify-center
+          rounded-md
+          border border-transparent
+          shadow-sm
+          px-4
+          py-2
+          bg-blue-600
+          text-base
+          font-medium
+          text-white
+          hover:bg-blue-700
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-blue-500
+          sm:ml-3 sm:w-auto sm:text-sm
+        "
+        (click)="openModal()"
+      >
+        Crée le saviez-vous
+      </button>
+      <button
+        class="
+          flex flex-center
+          custom-button
+          w-full
+          inline-flex
+          justify-center
+          rounded-md
+          border border-transparent
+          shadow-sm
+          px-4
+          py-2
+          bg-blue-600
+          text-base
+          font-medium
+          text-white
+          hover:bg-blue-700
+          focus:outline-none
+          focus:ring-2
+          focus:ring-offset-2
+          focus:ring-blue-500
+          sm:ml-3 sm:w-auto sm:text-sm
+        "
+        (click)="sendAlphaMail()"
+      >
+        Envoi Mail Alpha
+      </button>
+    </div>
   </div>
 
   <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -220,9 +250,7 @@ Copyright (c) 2021 BeAll
   <div class="mt-6 flex flex-col">
     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-        <div
-          class="shadow overflow-hidden sm:rounded-lg"
-        >
+        <div class="shadow overflow-hidden sm:rounded-lg">
           <table class="min-w-full">
             <thead>
               <tr>
@@ -398,20 +426,35 @@ Copyright (c) 2021 BeAll
         <li *ngFor="let value of values; let i = index">
           <div class="flex justify-between space-x-2">
             <input
-              class="w-full login-form-input-text ng-pristine ng-invalid ng-touched"
+              class="
+                w-full
+                login-form-input-text
+                ng-pristine ng-invalid ng-touched
+              "
               type="text"
               [(ngModel)]="value.value"
               #name="ngModel"
               name="value{{ i }}"
             />
             <button (click)="removevalue(i)">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
               </svg>
             </button>
           </div>
         </li>
-    </ul>
+      </ul>
 
       <ul *ngIf="values.length == 0" class="-my-5 divide-y divide-gray-200">
         <li *ngFor="let data of categories" class="py-4">

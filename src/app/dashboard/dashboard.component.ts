@@ -14,27 +14,26 @@
  * ----------	---	---------------------------------------------------------    *
  */
 
-
-
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { ModalComponent } from "../components/modal/modal.component";
 import { DidYouKnewService } from "../api/providers/didYouKnew.service";
 import { DidYouKnewModel } from "../api/models/didYouKnew.model";
 import { DidYouKnewsModel } from "../api/models/didYouKnews.model";
-import { SlideOversComponent } from '../components/slide-overs/slide-overs.component';
-import { SnackBarService } from '../components/snackbar/snackbar';
+import { SlideOversComponent } from "../components/slide-overs/slide-overs.component";
+import { SnackBarService } from "../components/snackbar/snackbar";
 
 import { DidYouKnewComponent } from "../components/modal/components/did-you-knew/did-you-knew.component";
 import { ArticleCategorieModel } from "../api/models";
 import { ArticleService } from "../api/providers";
+import { AlphaService } from "../api/providers";
+import { send } from "process";
 
 @Component({
   selector: "app-dashboard",
   templateUrl: "./dashboard.component.html",
   styleUrls: ["./dashboard.component.scss"],
 })
-
 export class DashboardComponent implements OnInit {
   datas: DidYouKnewsModel[] = [];
   categories: ArticleCategorieModel[] = [];
@@ -44,7 +43,9 @@ export class DashboardComponent implements OnInit {
     public matDialog: MatDialog,
     private Dyk: DidYouKnewService,
     private Article: ArticleService,
-    private snbar: SnackBarService) { }
+    private Alpha: AlphaService,
+    private snbar: SnackBarService
+  ) {}
 
   public showModal: boolean;
 
@@ -54,20 +55,20 @@ export class DashboardComponent implements OnInit {
   }
 
   addvalue = () => {
-    this.values.push({value: ""});
-  }
+    this.values.push({ value: "" });
+  };
 
-  saveValues = () =>{
+  saveValues = () => {
     this.Article.postCategorie(this.values)
       .toPromise()
       .then((result) => {
-        console.log(result)
+        console.log(result);
       });
     console.info(this.values);
-  }
+  };
 
-  removevalue(i){
-    this.values.splice(i,1);
+  removevalue(i) {
+    this.values.splice(i, 1);
   }
 
   getDidYouKnew = (id: string) => {
@@ -77,7 +78,7 @@ export class DashboardComponent implements OnInit {
         if (result) {
           let dialogConfig = new MatDialogConfig();
           dialogConfig.id = "slide-over";
-          console.log(result)
+          console.log(result);
           dialogConfig.data = {
             title: "Le saviez-vous ?",
             profilImage: result.userImage,
@@ -92,19 +93,19 @@ export class DashboardComponent implements OnInit {
           let dialog = this.matDialog.open(SlideOversComponent, dialogConfig);
         }
       });
-  }
+  };
 
   deleteDidYouKnew(id: string) {
     this.Dyk.deleteDidYouKnew(id)
       .toPromise()
       .then((result: DidYouKnewModel) => {
         if (result.deleted === true) {
-          this.snbar.openSnackBar("L'article à bien été supprimé", 'OK');
+          this.snbar.openSnackBar("L'article à bien été supprimé", "OK");
           this.getDidYouKnews();
         } else {
-          this.snbar.openSnackBar("Problème lors de la suppression", 'OK');
+          this.snbar.openSnackBar("Problème lors de la suppression", "OK");
         }
-      })
+      });
   }
 
   getDidYouKnews = () => {
@@ -119,9 +120,9 @@ export class DashboardComponent implements OnInit {
     this.Article.getCategories()
       .toPromise()
       .then((result: ArticleCategorieModel[]) => {
-        result.length > 0 ? this.categories = result : false
-      })
-  }
+        result.length > 0 ? (this.categories = result) : false;
+      });
+  };
 
   openModal = () => {
     const dialogConfig = new MatDialogConfig();
@@ -150,5 +151,11 @@ export class DashboardComponent implements OnInit {
 
   hideModal() {
     this.showModal = false;
+  }
+
+  sendAlphaMail() {
+    this.Alpha.sendAlphaMail()
+      .toPromise()
+      .then((result) => console.log(result));
   }
 }

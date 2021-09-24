@@ -269,7 +269,8 @@ Copyright (c) 2021 BeAll
                     </div>
                     <div class="ml-4">
                       <div class="text-sm font-medium text-gray-900">
-                        {{user.firstname}} {{user.lastname}}
+                        
+                       {{user.username}} {{user.firstname ? '/' : ''}} {{user.firstname}} {{user.lastname}}
                       </div>
                       <div class="text-sm text-gray-500">
                         {{user.email}}

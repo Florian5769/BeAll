@@ -30,7 +30,8 @@ export class ArticleComponent implements OnInit {
   public isLoading = false;
   public article: Article;
   public disabled: boolean;
-  public comments = "";
+  public comment = "";
+  public adminList = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -50,13 +51,15 @@ export class ArticleComponent implements OnInit {
       .toPromise()
       .then((result) => {
         this.article = result;
-
-        console.log(result)
+        if (result['article'].adminComments.length >= 90) {
+          this.disabled = false;
+          this.adminList = result['adminUsers'];
+        }
       });
   };
 
   getComments = (e: Event) => {
-    this.comments.length > 90
+    this.comment.length > 90
       ? this.disabled = false
       : this.disabled = true
   }
@@ -64,7 +67,7 @@ export class ArticleComponent implements OnInit {
   approvedArticle = (arg: boolean) => {
     if (arg) {
       this.article.status = 1;
-      this.article.adminComments = this.comments;
+      this.article.adminComments = "Cet article est validé";
       this.Article.validateArticle(this.article)
         .toPromise()
         .then((result) => {
@@ -76,6 +79,7 @@ export class ArticleComponent implements OnInit {
         });
     } else {
       this.article.status = -2;
+      this.article.adminComments = this.comment
       this.Article.validateArticle(this.article)
         .toPromise()
         .then((result) => {
@@ -87,4 +91,8 @@ export class ArticleComponent implements OnInit {
         });
     }
   };
+
+  populateCommentText = (text: string) => {
+    this.comment = text;
+  }
 }

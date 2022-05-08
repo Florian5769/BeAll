@@ -14,8 +14,6 @@
  * ----------	---	---------------------------------------------------------  *
  */
 
-
-
 /* tslint:disable */
 import { Injectable } from "@angular/core";
 import {
@@ -78,7 +76,7 @@ class ArticleService extends __BaseService {
     let __body: any = null;
     let req = new HttpRequest<any>(
       "GET",
-      this.rootUrl + "/article/" + id,
+      this.rootUrl + "/admin/article/" + id,
       __body,
       {
         headers: __headers,

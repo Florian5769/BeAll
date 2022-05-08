@@ -149,6 +149,26 @@ export class DashboardComponent implements OnInit {
     });
   };
 
+  openModalFeatures = () => {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.id = "modal-component";
+    dialogConfig.data = {
+      name: "features",
+      title: "ChangeLogs",
+      description: "Ajouter les nouveauté de l'application public",
+      actionButtonText: "Delete",
+      confirmText: "Confirmer",
+      productId: "test",
+      template: "features",
+      loading: false,
+      errors: {
+        content: false,
+        sport: false,
+      },
+    };
+
+    let dialog = this.matDialog.open(ModalComponent, dialogConfig);
+  };
   hideModal() {
     this.showModal = false;
   }

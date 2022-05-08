@@ -46,6 +46,7 @@ Copyright (c) 2021 Bodkin & Bodkin Ltd
                     <app-forgot-password *ngSwitchCase="'forgotPassword'" [formGroup]="formGroup" [data]="modalData"></app-forgot-password>
                     <app-user-modal *ngSwitchCase="'viewUser'" [formGroup]="formGroup" [data]="modalData"></app-user-modal>
                     <app-did-you-knew *ngSwitchCase="'createDyk'" [formGroup]="formGroup" [data]="modalData"></app-did-you-knew>
+                    <app-features *ngSwitchCase="'features'" [formGroup]="formGroup" [data]="modalData"></app-features>
                     <!-- Juste une proposition || en mode template == rien ? error-data-component et on affiche une page d'erreur -->
                     <!-- <error-data-component *ngSwitchDefault></error-data-component> -->
                   </form>

@@ -1,0 +1,16 @@
+<div [formGroup]="formGroup">
+    <div class="mb-5">
+      </div>
+  <div class="login-form-input">
+    <label for="">Détail des nouvelles fonctionnalités</label>
+    <textarea
+      type="text"
+      required
+      placeholder="Contenu"
+      class="login-form-input-text"
+      autocomplete="new-content"
+      [ngClass]="(data.errors.content) ? 'error' : '' "
+      formControlName="content">
+    </textarea>
+  </div>
+</div>

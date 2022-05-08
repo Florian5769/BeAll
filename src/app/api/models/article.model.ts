@@ -1,3 +1,6 @@
+import { UserModel } from "./user.model";
+
+
 export interface ArticleModel {
   recentArticles: Array<Article>;
   allArticles: Array<Article>;
@@ -19,5 +22,6 @@ export interface Article {
   grantNotification: boolean;
   userBio: string,
   userJoined: Date,
-  adminComments: string;
+  adminComments?: string;
+  adminUsers?: Array<UserModel>;
 }

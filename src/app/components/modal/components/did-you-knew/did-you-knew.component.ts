@@ -22,6 +22,9 @@ import {
   Renderer2,
   ViewChild,
   Input,
+  NgModule,
+  CUSTOM_ELEMENTS_SCHEMA,
+  NO_ERRORS_SCHEMA,
 } from "@angular/core";
 
 import {
@@ -31,6 +34,7 @@ import {
   Validators,
 } from "@angular/forms";
 import { SportModel } from "src/app/api/models/sport.model";
+
 
 @Component({
   selector: "app-did-you-knew",

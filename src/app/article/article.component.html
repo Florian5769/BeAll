@@ -29,18 +29,47 @@ Copyright (c) 2021 BeAll
         <img id="userArticleImage" class="object-cover h-16 w-16 rounded-full" [src]="article['user'].image" alt="" />
       </div>
 
-      <p class="my-3 block">{{article['user'].username}}</p>
-      <p class="my-3 opacity-40">{{article['user'].userBio}}</p>
-
-      <p class="m-0 opacity-40">Rejoint le</p>
-      <p class="m-0">{{article['user'].userJoined}}</p>
-
-      <div class="space-y-3">
-        <textarea class="w-full login-form-input-text ng-pristine ng-invalid ng-touched custom-scroll-bar"
-          [(ngModel)]="comments" appTextareaAutoresize autocomplete="off" placeholder="Ajouter un commentaire..."
-          (input)="getComments($event)"></textarea>
+      <div>
+        <p class="my-3 block">{{article['user'].username}}</p>
+        <p class="my-3 opacity-40">{{article['user'].userBio}}</p>
       </div>
 
+      <div>
+        <span class="m-0 opacity-40">Rejoint le</span>
+        <span class="m-0 px-3">{{article['user'].userJoined | date: "dd/MM/yyyy"}}</span>
+      </div>
+
+      <div>
+        <span class="block">Commentaire</span>
+        <div style="height: 1px; background-color: grey; margin-bottom: 0.75em;"></div>
+        <div class="space-y-3">
+          <textarea class="w-full login-form-input-text ng-pristine ng-invalid ng-touched custom-scroll-bar"
+            [(ngModel)]="comment" appTextareaAutoresize autocomplete="off" placeholder="Ajouter un commentaire..."
+            (input)="getComments($event)"></textarea>
+        </div>
+      </div>
+      <div>
+        <span class="block">Anciens commentaires</span>
+        <div style="height: 1px; background-color: grey; margin-bottom: 0.75em;"></div>
+        <div class="h-32 max-h-32 overflow-y-scroll custom-scroll-bar">
+          <ul class="divide-y divide-gray-200">
+            <li class="py-4" *ngFor="let admin of adminList">
+              <div class="flex space-x-3">
+                <img class="h-8 w-8 rounded-full" src={{admin.image}} alt="user's image">
+                <div class="flex-1 space-y-1">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-medium">{{admin.username}}</h3>
+                    <p class="text-sm text-gray-500">{{admin.date}}</p>
+                  </div>
+                  <button (click)="populateCommentText(admin.comment)">
+                    <p class="text-sm text-gray-500">{{admin.comment}}</p>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="flex space-x-3">
         <button
           class="block text-center w-full items-center justify-center px-3 py-2 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

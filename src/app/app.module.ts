@@ -17,7 +17,7 @@
 
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -48,6 +48,7 @@ import { DidYouKnewComponent } from './components/modal/components/did-you-knew/
 import { ViewDykComponent } from './components/slide-overs/templates/view-dyk/view-dyk.component';
 import { ArticleComponent } from './article/article.component';
 import { TextareaAutoresizeDirective } from './directives/textarea-autoresize.directive';
+import { FeaturesComponent } from './components/modal/components/features/features.component';
 // import { ElectronService } from 'src/providers/electron.service';
 
 @NgModule({
@@ -69,7 +70,8 @@ import { TextareaAutoresizeDirective } from './directives/textarea-autoresize.di
     DidYouKnewComponent,
     ViewDykComponent,
     ArticleComponent,
-    TextareaAutoresizeDirective
+    TextareaAutoresizeDirective,
+    FeaturesComponent
   ],
   imports: [
     BrowserModule,
@@ -82,6 +84,10 @@ import { TextareaAutoresizeDirective } from './directives/textarea-autoresize.di
     CommonModule,
     MatButtonModule,
     MatDialogModule
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA,
+    NO_ERRORS_SCHEMA
   ],
   providers: [
     HttpClientModule,
